@@ -1,0 +1,83 @@
+/* account navigation  */
+.woocommerce-MyAccount-navigation ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 50px 0;
+}
+.woocommerce-MyAccount-navigation ul li {
+  list-style: none !important;
+
+  margin: 20px 10px;
+}
+
+.woocommerce-MyAccount-navigation ul li a {
+  text-decoration: none;
+  border: 1px solid #fc8a8a;
+  padding: 10px 20px;
+}
+.woocommerce-MyAccount-navigation ul li a:hover {
+  text-decoration: none;
+  background: #fc8a8a;
+  border: 1px solid #fc8a8a;
+  padding: 10px 20px;
+}
+
+/* orders table */
+.woocommerce-account .woocommerce-orders-table {
+  max-width: 100% !important;
+}
+
+/* address section */
+.woocommerce-Address h3 {
+  font-weight: 500 !important;
+  margin: 10px 0;
+}
+.woocommerce-Address address {
+  font-weight: 400 !important;
+  margin-bottom: 20px;
+  font-style: normal !important;
+}
+
+/* Account details */
+.woocommerce-EditAccountForm input {
+  height: 40px !important;
+  padding: 0 5px;
+}
+.woocommerce-EditAccountForm button {
+  display: block !important;
+  margin: 20px auto !important;
+  width: 200px !important;
+}
+.woocommerce-EditAccountForm fieldset {
+  margin-top: 30px;
+}
+
+/* register page */
+#customer_login .u-column1 {
+  display: none;
+}
+#customer_login .u-column2 {
+  width: 95%;
+  margin: 0 auto;
+  max-width: 500px;
+}
+#customer_login input {
+  height: 40px;
+  padding: 5px;
+}
+#customer_login h2 {
+  display: none;
+}
+
+/* lost password  */
+.woocommerce-account .woocommerce-ResetPassword {
+  max-width: 500px;
+  width: 95%;
+  margin: 0 auto;
+}
+.woocommerce-account .woocommerce-ResetPassword input {
+  height: 40px;
+}
