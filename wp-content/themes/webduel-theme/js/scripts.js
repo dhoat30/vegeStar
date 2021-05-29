@@ -3,10 +3,9 @@ let $ = jQuery;
 
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
-
+import AddToCartAnimation from './modules/AddToCartAnimation';
 import Overlay from './modules/overlay';
 
-import WooAccount from './modules/WooAccount';
 
 import PopUpCart from './modules/PopUpCart';
 import SearchTrigger from './modules/SearchTrigger';
@@ -15,8 +14,8 @@ import SearchTrigger from './modules/SearchTrigger';
 // footer 
 
 window.onload = function () {
+  //add to cart animation- show cart option on hover
   //account 
-  const wooAccount = new WooAccount();
 
   const overlay = new Overlay();
 

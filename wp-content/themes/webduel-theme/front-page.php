@@ -113,9 +113,7 @@ get_header();
                             <span class="percentage regular dark-red-bc white border-radius-min">-<?php echo round($percentage, 0, PHP_ROUND_HALF_DOWN);?>%</span>
                         </p>
                 </a>
-                <div class="add-to-cart-container">
-                    <a href="<?php echo get_the_permalink();?>" class="medium">ADD TO CART </a>
-                </div>
+                
 
             </li>
             <?php 
