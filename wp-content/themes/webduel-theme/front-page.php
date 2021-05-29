@@ -3,7 +3,7 @@
 get_header(); 
 
 ?>
-
+<!-- slider -->
 <section class="home-page">
     <div class="slider-container">
 
@@ -72,37 +72,58 @@ get_header();
 </section>
 
 <!-- category section  -->
-<div class="category-section off-white-bc">
+<div class="category-section off-white-bc margin-row">
     <div class="category-container row-container">
-        <div class="lg-font-sz center-align title-underline">Shop By Category</div>                                    
+        <h2 class="column-s-font regular">Specials</h2>   
+        <h3 class="thin font-s-regular">We add specials every week.</h3>                                 
     </div>
 
-    <div class="flex">
+    <ul class="products row-container">
         <?php 
 
             $argsCategory = array(
-                'post_type' => 'category', 
-                'posts_per_page' => -1
+                'post_type' => 'product', 
+                'posts_per_page' => 15, 
+                'meta_key' => '_sale_price',
+                'meta_value' => '0',
+                'meta_compare' => '>=',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field'    => 'slug',
+                        'terms'    =>  array('fruits', 'vegetables') 
+                    )
+                )
             );
             $category = new WP_Query( $argsCategory );
 
             while($category->have_posts()){ 
                 $category->the_post(); 
-                ?>
-            <div class="cards">
-                <a class="rm-txt-dec" href="<?php echo get_the_permalink();?>">
-                        <img src="<?php echo get_the_post_thumbnail_url(null,"medium")?>" alt="<?php echo get_the_title();?>">
-                        <h3 class="center-align regular"><?php echo  get_the_title();?></h3>
-                        <button  class="rm-txt-dec button btn-dk-red thin">Browse</button>
-                </a>
 
-            </div>
+                $percentage = $product->get_sale_price()/ $product->get_regular_price() *100;
+                $percentage = 100 - $percentage;
+                ?>
+            <li class="product">
+                <a class="rm-txt-dec product-card" href="<?php echo get_the_permalink();?>">
+                        <img src="<?php echo get_the_post_thumbnail_url(null,"medium")?>" alt="<?php echo get_the_title();?>">
+                        <h3 class="regular font-s-regular"><?php echo wp_trim_words($product->get_name(), 4);?></h3>
+                        <p class="paragraph price">
+                            <span class="regular-price regular light-grey">$<?php echo round($product->get_regular_price(), 2);?> </span>
+                            <span class="sale-price regular dark-red">$<?php if( $product->is_on_sale() ){echo round($product->get_sale_price(), 2);}?></span>
+                            <span class="percentage regular dark-red-bc white border-radius-min">-<?php echo round($percentage, 0, PHP_ROUND_HALF_DOWN);?>%</span>
+                        </p>
+                </a>
+                <div class="add-to-cart-container">
+                    <a href="<?php echo get_the_permalink();?>" class="medium">ADD TO CART </a>
+                </div>
+
+            </li>
             <?php 
 
                 }
                 wp_reset_postdata();
                 ?>
-    </div>
+    </ul>
 
               
 

@@ -1,6 +1,6 @@
 .loader-icon {
   border: 5px solid #f3f3f3; /* Light grey */
-  border-top: 5px solid #ee6869; /* Blue */
+  border-top: 5px solid #cf292b; /* Blue */
   border-radius: 50% !important;
   width: 30px;
   height: 30px;
@@ -19,7 +19,7 @@
 
 .loader-confirmation {
   display: none;
-  color: #ee6869;
+  color: #cf292b;
   background-color: #75eac1;
   padding: 10px;
 }

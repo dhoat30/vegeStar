@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html <?php language_attributes();?>>
 <head>
- 
+        <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KQXDHV5');</script>
+    <!-- End Google Tag Manager -->
 
     <meta charset="<?php bloginfo('charset');?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <link rel="profile" href="https://gmpg.org/xfn/11"/>
     <?php wp_head(); ?>
     
-  
-    <!-- magnifying --> 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/css/magnify.css" integrity="sha512-JxBFHHd+xyHl++SdVJYCCgxGPJKCTTaqndOl/n12qI73hgj7PuGuYDUcCgtdSHTeXSHCtW4us4Qmv+xwPqKVjQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-iKbFRxucmOHIcpWdX9NTZ5WETOPm0Goy0WmfyNcl52qSYtc2Buk0NCe6jU1sWWNB" crossorigin="anonymous">
 
        
 </head>
@@ -23,134 +27,141 @@
 
 ?>
 <body id="header"<?php body_class( );?> data-archive='<?php echo $archive ?>'>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PS7XFHN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-    <section class="header  light-green-bc" >
-       
-        <div class="top-banner row-container">
-
-            <!--Logo   -->
-            <div class="logo-container">
-
-                <?php 
-
-                $argsLogo = array(
-                    'pagename' => 'contact', 
-                    'posts_per_page' => 1
-                
-                );
-                $logo = new WP_Query( $argsLogo );
-
-                while($logo->have_posts()){ 
-                    $logo->the_post(); 
-
-                    ?>
-                    <a href="<?php echo get_site_url(); ?>">
-                        <?php 
-                        $image = get_field('logo');
-                        $size = 'full'; // (thumbnail, medium, large, full or custom size)
-                        ?>
-                        <img src="<?php  print_r($image['sizes']['medium']);?>" alt="">
-                        
-                    </a>
-                    <?php
-                    }
-                    wp_reset_postdata();
     
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQXDHV5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-                ?>
-            </div>
-            <!-- search code -->
-            <div class="search-icon"><svg focusable="false" aria-label="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30px"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div>
-            <div class="search-code playfair-fonts font-s-regular dark-grey">
-                <i class="fal fa-times"></i>
-                <?php if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
-                    echo  do_shortcode('[ivory-search id="79" title="Default Search Form"]');
-                    }
-                    else{
-                        echo do_shortcode('[ivory-search id="26873" title="Default Search Form"]');
-                    }
-                    
-                    ?>
-             
-            </div>
 
-            <div class="link-container">
+    <section class="header off-white" >
+        <div class="top-banner row-container">
+            <h1 class="welcome-wrapper font-s-regular thin">
+                Welcome to Vege Star!
+            </h1>
+            <ul class="link-container">
                 <!-- wishlist -->
-                <div class="wishlist">
-                <a href="<?php echo get_home_url().'/wishlist' ?>"   class="text-decoration-none white">
-                        <i class="fas fa-heart"></i>
-                        <span>Wishlist</span>
-                </a> 
+                <li class="wishlist">
+                    <a href="<?php echo get_home_url().'/wishlist' ?>"   class="text-decoration-none white thin">
+                            <i class="fal fa-heart"></i>
+                            <span>Wishlist</span>
+                    </a> 
                 
-                </div>
+                </li>
                 
                 <!-- login area -->
-                <div class="login-area playfair-fonts font-s-regular profile-trigger ">
+                <li class="login-area playfair-fonts font-s-regular profile-trigger ">
                 
                         <?php 
                             if(is_user_logged_in()){
                                 global $current_user; wp_get_current_user();  
-                                ?> <a href="" class="profile-name-value text-decoration-none white">
-                                    <i class="fas fa-user"></i> 
+                                ?> <a href="" class="profile-name-value text-decoration-none white thin">
+                                    <i class="fal fa-user"></i> 
                                     <span>  
                                         <?php echo  $current_user->display_name;?>
-                                        <i class="fas fa-chevron-down regular arrow-icon"></i>
+                                        <i class="fal fa-chevron-down regular arrow-icon"></i>
                                     </span>
+                                </a>   
+                                    
                                 
-                                    <nav>
-                                    <?php
-                                        wp_nav_menu( array( 
-                                            'theme_location' => 'top-navbar', 
-                                            'container_class' => "my-account-nav"
-                                        )); 
-                                    ?>
-                                    </nav>  
-                                    </a>       
+                                        <nav>
+                                            <?php
+                                                wp_nav_menu( array( 
+                                                    'theme_location' => 'top-navbar', 
+                                                    'container_class' => "my-account-nav"
+                                                )); 
+                                            ?>
+                                        </nav>  
+                                        
                                 <?php
                             }
                             else{
-                                ?><a href="<?php echo get_site_url(); ?>/my-account/" class="text-decoration-none dark-grey regular" data-root-url='<?php echo get_home_url()?>/account-profile' id="show_login">
-                                    <i class="fas fa-user"></i>
+                                ?><a href="<?php echo get_site_url(); ?>/my-account/" class="text-decoration-none dark-grey thin" data-root-url='<?php echo get_home_url()?>/account-profile' id="show_login">
+                                    <i class="fal fa-user"></i>
                                     <span>Login</span> 
                             </a>
                                 <?php
                             }
                         ?>
                     
-                </div>
+                </li>
                 
                 <!-- shopping cart -->
-                <div class="shopping-cart playfair-fonts font-s-regular desktop-visible">
-                    <a href="#" class="text-decoration-none dark-grey regular cart-items-header">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-item-count">Cart (<?php echo WC()->cart->get_cart_contents_count(); ?>)</span>
+                <li class="shopping-cart playfair-fonts font-s-regular desktop-visible">
+                    <a href="#" class="text-decoration-none dark-grey cart-items-header thin">
+                        <i class="fal fa-shopping-cart"></i>
+                        <span class="cart-item-count thin">Cart (<?php echo WC()->cart->get_cart_contents_count(); ?>)</span>
                     </a>
-                </div>
+                </li>
             </div>
-           
-
-            
         </div>
 
 
-        <!--top navbar --> 
-        <nav class="navbar top-navbar light-red-color-bc">
-            <div class="links row-container">
-            <?php
-               wp_nav_menu(
-                    array(
-                        'theme_location' => 'Hospo_main_menu', 
-                        'container_id' => 'top-navbar'
-                    ));
-            ?>
+        <!--main navbar --> 
+        <nav class="navbar dark-green-bc">
+            <div class="container row-container">
+                <div class="logo-container">
+
+                        <?php 
+
+                        $argsLogo = array(
+                            'pagename' => 'contact', 
+                            'posts_per_page' => 1
+
+                        );
+                        $logo = new WP_Query( $argsLogo );
+
+                        while($logo->have_posts()){ 
+                            $logo->the_post(); 
+
+                            ?>
+                            <a href="<?php echo get_site_url(); ?>">
+                                <?php 
+                                $image = get_field('logo');
+                                $size = 'full'; // (thumbnail, medium, large, full or custom size)
+                                ?>
+                                <img src="<?php  print_r($image['sizes']['medium']);?>" alt="">
+                                
+                            </a>
+                            <?php
+                            }
+                            wp_reset_postdata();
+
+
+                        ?>
+                </div>
+
+                <div class="links row-container">
+                <?php
+                wp_nav_menu(
+                        array(
+                            'theme_location' => 'Hospo_main_menu', 
+                            'container_id' => 'top-navbar'
+                        ));
+                ?>
+                </div>
+
+                <!-- search code -->
+                <div class="search-icon"><svg focusable="false" aria-label="Search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30px"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></div>
+                <div class="search-code playfair-fonts font-s-regular dark-grey">
+                    <i class="fal fa-times"></i>
+                    <?php if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
+                        echo  do_shortcode('[ivory-search id="79" title="Default Search Form"]');
+                        }
+                        else{
+                            echo do_shortcode('[ivory-search id="26873" title="Default Search Form"]');
+                        }
+                        
+                        ?>
+
+                </div>
             </div>
+
                  
     </section>
 
+ <!--Logo   -->
+ 
 
 <!-- cart popup -->
       

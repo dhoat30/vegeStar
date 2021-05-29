@@ -30,7 +30,8 @@
 
 /*design boards */
 
-/*pages */
+/*login card */
+@import "css/login-card.css";
 
 /*slider */
 
@@ -54,6 +55,10 @@ p {
 }
 textarea::placeholder {
   font-family: "Roboto", sans-serif !important;
+}
+/* border radius */
+.border-radius-min {
+  border-radius: 3px;
 }
 /*flex container*/
 .flex-row {
@@ -236,7 +241,7 @@ textarea::placeholder {
   letter-spacing: 0.2em;
   line-height: 1.3em;
   padding: 10px 25px 10px 25px !important;
-  border: 1px solid #ee6869;
+  border: 1px solid #cf292b;
   cursor: pointer;
   font-weight: 500 !important;
   border-radius: 0 !important;
@@ -250,7 +255,7 @@ textarea::placeholder {
   height: 40px;
   margin: 0 10px 0 0;
   outline: none;
-  border: 1px solid #ee6869;
+  border: 1px solid #cf292b;
   cursor: pointer;
   border-radius: 0 !important;
 }
@@ -260,18 +265,18 @@ textarea::placeholder {
 }
 .btn-dk-red-border {
   background-color: white !important;
-  border: 1px solid #ee6869 !important;
-  color: #ee6869 !important;
+  border: 1px solid #cf292b !important;
+  color: #cf292b !important;
 }
 
 .btn-dk-red-border:hover {
-  background-color: #ee6869 !important;
-  border: 1px solid #ee6869 !important;
+  background-color: #cf292b !important;
+  border: 1px solid #cf292b !important;
   color: white !important;
 }
 
 .btn-dk-red-border i {
-  color: #ee6869 !important;
+  color: #cf292b !important;
 }
 
 .btn-dk-red-border:hover i {
@@ -279,7 +284,7 @@ textarea::placeholder {
 }
 
 .btn-dk-red {
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   color: white !important;
 }
 
@@ -302,7 +307,7 @@ textarea::placeholder {
 }
 
 .dark-red {
-  color: #ee6869;
+  color: #cf292b;
 }
 
 .light-grey {
@@ -310,13 +315,15 @@ textarea::placeholder {
 }
 
 .dark-green {
-  color: #4bcc81;
+  color: #253237;
 }
 
 .black-bc {
   background-color: black;
 }
-
+.dark-red-bc {
+  background-color: #cf292b;
+}
 .light-red-color-bc-lt {
   background-color: #f8f7f3;
 }
@@ -325,13 +332,16 @@ textarea::placeholder {
   background-color: #fc8a8a;
 }
 .light-green-bc {
-  background-color: #4bcc81 !important;
+  background-color: #4fb68d !important;
+}
+.dark-green-bc {
+  background-color: #253237;
 }
 .grey-bc {
   background: #222222 !important;
 }
 .off-white-bc {
-  background-color: #efefef;
+  background-color: #fff;
 }
 
 /*shadow */
@@ -440,7 +450,7 @@ textarea::placeholder {
   right: 20px;
   font-size: 30px;
   cursor: pointer;
-  color: #ee6869;
+  color: #cf292b;
 }
 
 .fa-times:hover {
@@ -456,23 +466,23 @@ textarea::placeholder {
 
 .geodir-list-save-container .gd-badge {
   background-color: #fff !important;
-  color: #ee6869 !important;
-  border: solid #ee6869 !important;
+  color: #cf292b !important;
+  border: solid #cf292b !important;
   transition: 0.3s ease-in-out;
   font-size: 16px;
   border-radius: 0;
 }
 
 .geodir-list-save-container .gd-badge:hover {
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   color: #fff !important;
-  border: solid #ee6869 !important;
+  border: solid #cf292b !important;
 }
 
 .gd-badge-meta-saved .gd-badge {
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   color: #fff !important;
-  border: solid #ee6869 !important;
+  border: solid #cf292b !important;
 }
 
 /*404 */
@@ -549,7 +559,7 @@ textarea::placeholder {
   box-shadow: none;
   opacity: 1;
   transition: all 0.15s ease-in-out !important;
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   letter-spacing: 1px !important;
   font-family: "Roboto", sans-serif !important;
 }
@@ -569,7 +579,7 @@ textarea::placeholder {
   box-shadow: none;
   opacity: 1;
   transition: all 0.15s ease-in-out !important;
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   letter-spacing: 1px !important;
   font-family: "Roboto", sans-serif !important;
 }

@@ -3,11 +3,11 @@
 }
 
 .bc-cart-actions button.bc-btn {
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   margin-top: 20px;
 }
 .bc-cart-subtotal {
-  color: #ee6869;
+  color: #cf292b;
 }
 .bc-cart-item__remove-button {
   cursor: pointer;

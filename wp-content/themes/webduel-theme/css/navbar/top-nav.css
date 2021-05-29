@@ -66,7 +66,7 @@
 @media (min-width: 1101px) {
   .mega-menu-horizontal {
     display: flex !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
   }
 }
 .mega-menu > li {

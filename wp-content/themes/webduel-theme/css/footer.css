@@ -46,10 +46,10 @@ footer {
   display: inline-block;
 }
 .footer-menu-row a:hover {
-  color: #4bcc81;
+  color: #4fb68d;
 }
 .footer-menu-row a:hover i {
-  color: #4bcc81;
+  color: #4fb68d;
 }
 
 .social-media-footer {
@@ -87,7 +87,7 @@ footer {
   color: black;
 }
 .footer .mailchimp-form .button {
-  background: #ee6869;
+  background: #cf292b;
   border: none;
   color: white;
   border-radius: 2px !important;

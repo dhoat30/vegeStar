@@ -5,7 +5,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 
 import Overlay from './modules/overlay';
-import TopNav from './modules/TopNav';
+
 import WooAccount from './modules/WooAccount';
 
 import PopUpCart from './modules/PopUpCart';
@@ -17,7 +17,7 @@ import SearchTrigger from './modules/SearchTrigger';
 window.onload = function () {
   //account 
   const wooAccount = new WooAccount();
-  const topnav = new TopNav();
+
   const overlay = new Overlay();
 
   const popUpCart = new PopUpCart();
@@ -27,19 +27,17 @@ window.onload = function () {
 
 
   //profile navbar
-
-
   let profileNavbar = {
     eventListener: function () {
       $('.profile-name-value').click(function (e) {
         let user = document.querySelector('.profile-name-value').innerHTML;
-        console.log("click working");
+
         if (user.includes('LOGIN / REGISTER')) {
           console.log('Log In');
         }
         else {
           e.preventDefault();
-          $('.my-account-nav').slideToggle(200, function () {
+          $('.header .login-area nav').slideToggle(200, function () {
             $('.arrow-icon').toggleClass('fa-chevron-up');
           });
         }
@@ -49,6 +47,7 @@ window.onload = function () {
 
   profileNavbar.eventListener();
 }
+
 // ajax log in
 jQuery(document).ready(function ($) {
 

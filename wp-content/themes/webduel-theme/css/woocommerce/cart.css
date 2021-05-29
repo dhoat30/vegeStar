@@ -62,30 +62,30 @@
 
 .button[name="apply_coupon"] {
   background-color: white;
-  border: 1px solid #ee6869;
-  color: #ee6869 !important;
+  border: 1px solid #cf292b;
+  color: #cf292b !important;
 }
 
 .button[name="apply_coupon"]:hover {
   text-decoration: underline;
   background-color: transparent;
-  color: #ee6869 !important;
+  color: #cf292b !important;
 }
 
 .button[name="update_cart"] {
   background-color: white !important;
-  border: 1px solid #ee6869 !important;
-  color: #ee6869 !important;
+  border: 1px solid #cf292b !important;
+  color: #cf292b !important;
 }
 
 .button[name="update_cart"]:hover {
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   color: white !important;
   filter: brightness(115%);
 }
 .checkout-button,
 #place_order {
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
   color: white !important;
   font-size: 16px !important;
 }
@@ -190,10 +190,10 @@
 
 /*remove*/
 .woocommerce a.remove {
-  color: #ee6869 !important;
+  color: #cf292b !important;
 }
 .woocommerce a.remove:hover {
-  background-color: #ee6869 !important;
+  background-color: #cf292b !important;
 }
 
 /* wishlist page */
