@@ -7,6 +7,7 @@ class PopUpCart {
     }
 
     events() {
+
         $('.header .shopping-cart .cart-items-header').on('click', this.openCart)
         $(document).on('click', '.cart-box .cont-shopping a', this.closeCart)
         // $('.cart-popup-container .fa-times').on('click', this.closeCart)
@@ -20,9 +21,9 @@ class PopUpCart {
     removeItem(e) {
         e.preventDefault();
         let productID = $(e.target).attr('data-productID');
-        let url = 'https://hosposupplies.co.nz/wp-admin/admin-ajax.php';
+        let url = 'https://vegestar.co.nz/wp-admin/admin-ajax.php';
         if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-            url = 'http://localhost/hospo/wp-admin/admin-ajax.php';
+            url = 'http://localhost/vege-star/wp-admin/admin-ajax.php';
         }
 
         $.ajax({

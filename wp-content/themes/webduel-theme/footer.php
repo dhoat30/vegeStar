@@ -31,10 +31,13 @@
 
             ?>
             <ul>
-              <li><a href="tel:<?php echo get_field('phone_number');?>"><i class="fas fa-phone-square-alt dark-red"></i><?php echo get_field('phone_number');?></a></li>
-              <li><a href="tel:<?php echo get_field('toll_free_phone');?>"><i class="fas fa-phone-square-alt dark-red"></i><?php echo get_field('phone_number');?></a></li>
-              <li><a href="mailto:<?php echo get_field('email_');?>"><i class="fas fa-envelope dark-red"></i><?php echo get_field('email_');?></a></li>
-              <li><a href="<?php echo get_field('facebook');?>"><i class="fab fa-facebook-square dark-red"></i>Facebook</a></li>
+              
+              <li><a href="tel:<?php echo get_field('phone_number');?>"><i class="fas fa-phone-square-alt light-green"></i><?php echo get_field('phone_number');?></a></li>
+              <li><a href="tel:<?php echo get_field('toll_free_phone');?>"><i class="fas fa-phone-square-alt light-green"></i><?php echo get_field('phone_number');?></a></li>
+              <li><a href="mailto:<?php echo get_field('email_');?>"><i class="fas fa-envelope light-green"></i><?php echo get_field('email_');?></a></li>
+              <li><a href="<?php echo get_field('facebook');?>"><i class="fab fa-facebook-square light-green"></i>Facebook</a></li>
+              <li class="opening-hours"><a href="<?php echo get_field('facebook');?>"><i class="fas fa-clock light-green"></i>Opening Hours <span class="white"> <?php echo get_field('opening_hours'); ?></span></a></li>
+
             </ul>
             <?php 
         wp_reset_postdata();
@@ -46,32 +49,49 @@
 
 
 
-    <div class="newsletter">
-      <h6 class="footer-menu-title">
-        Get Monthly Catalogue
-
+    <div class="support-container">
+    <h6 class="footer-menu-title">
+        Proudly Supporting
       </h6>
-      <div class="mailchimp-form">
-        <?php 
-        if(strstr($_SERVER['SERVER_NAME'], 'localhost')){
-          echo do_shortcode('[mc4wp_form id="106"]');
-
-        }
-        else{
-          echo do_shortcode('[mc4wp_form id="26989"]');
-        }
-        ?>
+      <div>
+        <img loading="lazy" src="https://vegestar.co.nz/wp-content/uploads/2020/04/Logo1.png" alt="Good Neighbour">
+        <a href="https://goodneighbour.co.nz/donate/" class="button btn-dk-red ">Donate</a>
       </div>
 
     </div>
 
 
   </div>
+    
+  <div class="payment-section row-container">
+      <h6 class="white font-s-med regular center-align">
+        Payment Methods
+      </h6>
+        <ul class="payment-container">
+                <?php 
 
+        $argsPaymentLogo = array(
+            'post_type' => 'payment-options', 
+            'posts_per_page' => -1
+          
+        );
+        $paymentLogo = new WP_Query( $argsPaymentLogo );
+
+        while($paymentLogo->have_posts()){ 
+            $paymentLogo->the_post(); 
+            ?>
+            <li><img loading="lazy" src="<?php echo get_the_post_thumbnail_url() ?>" alt="<?php echo get_the_title(); ?>" ></li>
+        
+        <?php 
+        wp_reset_postdata();
+        }
+        ?>
+     </ul>
+  </div>
  
   <div class="copyright-container row-container">
     <div>© Copyright 2019 Hospo Supplies. All rights reserved. <a href="https://webduel.co.nz" rel="nofollow"
-        target="_blank" class="dark-green rm-txt-dec"> Built By WebDuel</a></div>
+        target="_blank" class="light-green rm-txt-dec"> Built By WebDuel</a></div>
   </div>
 </footer>
 

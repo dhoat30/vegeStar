@@ -1,5 +1,4 @@
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
+
 let $ = jQuery;
 
 class ProductSlider {
@@ -7,7 +6,7 @@ class ProductSlider {
         this.events();
     }
     events() {
-        $('.owl-carousel').owlCarousel({
+        $('.category-section .owl-carousel').owlCarousel({
             loop: true,
             margin: 10,
             nav: true,

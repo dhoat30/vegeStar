@@ -39,6 +39,9 @@
 
 /*footer*/
 
+/* wishlist */
+@import "css/wishlist/yith-wishlist.css";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -241,13 +244,13 @@ textarea::placeholder {
   letter-spacing: 0.2em;
   line-height: 1.3em;
   padding: 10px 25px 10px 25px !important;
-  border: 1px solid #cf292b;
+  border: 1px solid #4fb68d;
   cursor: pointer;
   font-weight: 500 !important;
   border-radius: 0 !important;
 }
 .button:hover {
-  border: 1px solid #fd7a7a;
+  border: 1px solid #253237;
 }
 
 .btn {
@@ -255,7 +258,7 @@ textarea::placeholder {
   height: 40px;
   margin: 0 10px 0 0;
   outline: none;
-  border: 1px solid #cf292b;
+  border: 1px solid #4fb68d;
   cursor: pointer;
   border-radius: 0 !important;
 }
@@ -265,18 +268,18 @@ textarea::placeholder {
 }
 .btn-dk-red-border {
   background-color: white !important;
-  border: 1px solid #cf292b !important;
-  color: #cf292b !important;
+  border: 1px solid #4fb68d !important;
+  color: #4fb68d !important;
 }
 
 .btn-dk-red-border:hover {
-  background-color: #cf292b !important;
-  border: 1px solid #cf292b !important;
+  background-color: #4fb68d !important;
+  border: 1px solid #4fb68d !important;
   color: white !important;
 }
 
 .btn-dk-red-border i {
-  color: #cf292b !important;
+  color: #4fb68d !important;
 }
 
 .btn-dk-red-border:hover i {
@@ -284,7 +287,7 @@ textarea::placeholder {
 }
 
 .btn-dk-red {
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
   color: white !important;
 }
 
@@ -293,11 +296,11 @@ textarea::placeholder {
 }
 
 .btn-dk-red:hover {
-  background-color: #fd7a7a !important;
+  background-color: #253237 !important;
 }
 
 .btn-dk-red:hover i {
-  background: #fd7a7a;
+  background: #253237;
 }
 
 /* colors*/
@@ -306,8 +309,8 @@ textarea::placeholder {
   color: white;
 }
 
-.dark-red {
-  color: #cf292b;
+.light-green {
+  color: #4fb68d;
 }
 
 .light-grey {
@@ -322,7 +325,7 @@ textarea::placeholder {
   background-color: black;
 }
 .dark-red-bc {
-  background-color: #cf292b;
+  background-color: #4fb68d;
 }
 .light-red-color-bc-lt {
   background-color: #f8f7f3;
@@ -425,7 +428,7 @@ textarea::placeholder {
 /*error and success messages*/
 
 .error-bg {
-  background: #f59c9c;
+  background: #253237;
   color: #ba0505;
   margin: 10px 0;
   padding: 10px;
@@ -450,7 +453,7 @@ textarea::placeholder {
   right: 20px;
   font-size: 30px;
   cursor: pointer;
-  color: #cf292b;
+  color: #4fb68d;
 }
 
 .fa-times:hover {
@@ -466,23 +469,23 @@ textarea::placeholder {
 
 .geodir-list-save-container .gd-badge {
   background-color: #fff !important;
-  color: #cf292b !important;
-  border: solid #cf292b !important;
+  color: #4fb68d !important;
+  border: solid #4fb68d !important;
   transition: 0.3s ease-in-out;
   font-size: 16px;
   border-radius: 0;
 }
 
 .geodir-list-save-container .gd-badge:hover {
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
   color: #fff !important;
-  border: solid #cf292b !important;
+  border: solid #4fb68d !important;
 }
 
 .gd-badge-meta-saved .gd-badge {
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
   color: #fff !important;
-  border: solid #cf292b !important;
+  border: solid #4fb68d !important;
 }
 
 /*404 */
@@ -559,7 +562,7 @@ textarea::placeholder {
   box-shadow: none;
   opacity: 1;
   transition: all 0.15s ease-in-out !important;
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
   letter-spacing: 1px !important;
   font-family: "Roboto", sans-serif !important;
 }
@@ -579,12 +582,12 @@ textarea::placeholder {
   box-shadow: none;
   opacity: 1;
   transition: all 0.15s ease-in-out !important;
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
   letter-spacing: 1px !important;
   font-family: "Roboto", sans-serif !important;
 }
 .woo-btn-dk-red:hover {
-  background: #fd7a7a !important;
+  background: #253237 !important;
 }
 
 /* getpaid error fix */

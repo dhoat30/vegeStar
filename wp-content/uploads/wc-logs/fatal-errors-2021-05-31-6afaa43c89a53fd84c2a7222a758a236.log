@@ -4,3 +4,25 @@
 
 2021-05-31T08:29:08+00:00 CRITICAL syntax error, unexpected 'alt' (T_STRING), expecting ')' in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/front-page.php on line 186
 
+2021-05-31T12:58:30+00:00 CRITICAL Uncaught Error: Call to a member function get_name() on null in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/inc/woocommerce.php:113
+Stack trace:
+#0 /Applications/MAMP/htdocs/vege-star/wp-includes/class-wp-hook.php(292): add_description('')
+#1 /Applications/MAMP/htdocs/vege-star/wp-includes/class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#2 /Applications/MAMP/htdocs/vege-star/wp-includes/plugin.php(484): WP_Hook->do_action(Array)
+#3 /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/woocommerce/content-single-product.php(60): do_action('woocommerce_sin...')
+#4 /Applications/MAMP/htdocs/vege-star/wp-includes/template.php(732): require('/Applications/M...')
+#5 /Applications/MAMP/htdocs/vege-star/wp-content/plugins/woocommerce/includes/wc-core-functions.php(284): load_template('/Applications/M...', false)
+#6 /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/woocommerce/single-product.php(37): wc_get_template_part('content', 'single-product')
+# in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/inc/woocommerce.php on line 113
+
+2021-05-31T12:58:31+00:00 CRITICAL Uncaught Error: Call to a member function get_name() on null in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/inc/woocommerce.php:113
+Stack trace:
+#0 /Applications/MAMP/htdocs/vege-star/wp-includes/class-wp-hook.php(292): add_description('')
+#1 /Applications/MAMP/htdocs/vege-star/wp-includes/class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
+#2 /Applications/MAMP/htdocs/vege-star/wp-includes/plugin.php(484): WP_Hook->do_action(Array)
+#3 /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/woocommerce/content-single-product.php(60): do_action('woocommerce_sin...')
+#4 /Applications/MAMP/htdocs/vege-star/wp-includes/template.php(732): require('/Applications/M...')
+#5 /Applications/MAMP/htdocs/vege-star/wp-content/plugins/woocommerce/includes/wc-core-functions.php(284): load_template('/Applications/M...', false)
+#6 /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/woocommerce/single-product.php(37): wc_get_template_part('content', 'single-product')
+# in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/inc/woocommerce.php on line 113
+

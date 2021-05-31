@@ -9,23 +9,23 @@ add_post_type_support( "sliders", "thumbnail" );
 add_post_type_support( "category", "thumbnail" ); 
 add_post_type_support( "gallery", "thumbnail" );
 add_post_type_support( "reviews", "thumbnail" );
-//  add_post_type_support( "brand", "thumbnail" );
+  add_post_type_support( "payment-options", "thumbnail" );
 
 function register_custom_type2(){ 
     //brand logo
-    register_post_type("contact-info", array(
+    register_post_type("payment-options", array(
       "supports" => array("title", 'thumbnail'), 
       "public" => true, 
       "show_ui" => true, 
       "hierarchical" => true,
       "labels" => array(
-         "name" => "Contact Info", 
-         "add_new_item" => "Add New Contact Info", 
-         "edit_item" => "Edit Contact Info", 
-         "all_items" => "All Contact Info", 
-         "singular_name" => "Contact Info"
+         "name" => "Payment Logo", 
+         "add_new_item" => "Add New Payment logo", 
+         "edit_item" => "Edit Payment Logo", 
+         "all_items" => "All Payment Logo", 
+         "singular_name" => "Payment Logo"
       ), 
-      "menu_icon" => "dashicons-info-outline"
+      "menu_icon" => "dashicons-money"
    )
    ); 
 

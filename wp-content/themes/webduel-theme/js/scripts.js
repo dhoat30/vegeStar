@@ -1,5 +1,7 @@
 import '../style.css';
 let $ = jQuery;
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
 
 
 import Overlay from './modules/overlay';

@@ -127,6 +127,60 @@ get_header();
 
 </div>
 
+<!-- category section  -->
+<div class="category-section off-white-bc margin-row">
+    <div class="category-container row-container">
+        <h2 class="column-s-font regular">Fruit & Vege Boxes</h2>   
+        <h3 class="thin font-s-regular">We do the hard work of selecting the fresh produce.</h3>                                 
+    </div>
+
+    <div class="products row-container owl-carousel owl-theme">
+        <?php 
+
+            $argsCategory = array(
+                'post_type' => 'product', 
+                'posts_per_page' => -1,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'product_cat',
+                        'field'    => 'slug',
+                        'terms'    =>  'fruit-veg-boxes'
+                    )
+                )
+            );
+            $category = new WP_Query( $argsCategory );
+
+            while($category->have_posts()){ 
+                $category->the_post(); 
+
+                $percentage = $product->get_sale_price()/ $product->get_regular_price() *100;
+                $percentage = 100 - $percentage;
+                ?>
+          
+                <a class="rm-txt-dec product-card" href="<?php echo get_the_permalink();?>">
+                        <img src="<?php echo get_the_post_thumbnail_url(null,"medium")?>" alt="<?php echo get_the_title();?>" loading="lazy">
+                        <h3 class="regular font-s-regular"><?php echo wp_trim_words($product->get_name(), 4);?></h3>
+                        <p class="paragraph price">
+                            <span class="regular-price regular light-grey">$<?php echo round($product->get_regular_price(), 2);?> </span>
+                            <span class="sale-price regular dark-red">$<?php if( $product->is_on_sale() ){echo round($product->get_sale_price(), 2);}?></span>
+                            <span class="percentage regular dark-red-bc white border-radius-min">-<?php echo round($percentage, 0, PHP_ROUND_HALF_DOWN);?>%</span>
+                        </p>
+                </a>
+                
+
+            
+            <?php 
+
+                }
+                wp_reset_postdata();
+                ?>
+    </div>
+
+              
+
+</div>
+
+
 <!-- category section - All categories  -->
 <div class="category-section off-white-bc margin-row">
     <div class="category-container row-container">
@@ -166,6 +220,52 @@ get_header();
     </div>
 </div>
 
+
+<!-- review section -->
+<section class="review-section">
+    <div class="review-section-card row-container">
+        <div class="review-container ">
+            <div class="column-s-font center-align white">Customer Reviews </div>   
+        </div>
+        <div class="owl-carousel">
+                    <?php 
+
+                $argsReview = array(
+                    'post_type' => 'reviews', 
+                    'posts_per_page' => -1
+                );
+                $review = new WP_Query( $argsReview );
+
+                while($review->have_posts()){ 
+                    $review->the_post(); 
+
+                    ?>
+                        <div class="review-cards">
+                            <div class="card">
+                                <div class="backdrop"></div>
+                                <div class="image">
+                                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
+                                    <h6 class="font-s-med ft-wt-med center-align"><?php echo get_the_title();?></h6>
+                                </div>
+                            </div>
+                            
+                            <div class="review white">
+                                <?php echo get_field('review');?>
+                            </div>
+                        </div>
+                <?php 
+
+                    }
+                    wp_reset_postdata();
+                    ?>
+
+        </div>
+       
+    </div>
+    
+</section>
+
+<!-- gallery container -->
 <div class="gallery-section">
 
 
@@ -193,50 +293,6 @@ get_header();
     </div>
 </div>
 
-<!-- review section -->
-<section class="review-section">
-    <div class="review-section-card row-container">
-        <div class="review-container ">
-            <div class="column-s-font center-align white">Customer Reviews </div>   
-        </div>
-        <div class="review-cards owl-carousel">
-                    <?php 
-
-                $argsReview = array(
-                    'post_type' => 'reviews', 
-                    'posts_per_page' => 1
-                );
-                $review = new WP_Query( $argsReview );
-
-                while($review->have_posts()){ 
-                    $review->the_post(); 
-
-                    ?>
-                            <div class="card">
-                                <div class="image-container">
-                                    <div class="backdrop"></div>
-                                    <div class="image">
-                                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
-                                        <h6 class="font-s-med ft-wt-med center-align"><?php echo get_the_title();?></h6>
-                                    </div>
-                                </div>
-
-                                <div class="review white">
-                                 <?php echo get_field('review');?>
-                                </div>
-                                
-                            </div>
-                            
-                            
-                <?php 
-
-                    }
-                    wp_reset_postdata();
-                    ?>
-        </div>
-    </div>
-    
-</section>
 <script>
     const slides = document.querySelectorAll('.slide');
     const next = document.querySelector('#next');

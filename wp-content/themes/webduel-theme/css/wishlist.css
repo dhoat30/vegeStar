@@ -11,7 +11,7 @@
 }
 /*wishlist icons */
 .wish-list-icon-container .fa-heart {
-  color: #cf292b;
+  color: #4fb68d;
   cursor: pointer;
   font-size: 30px;
   padding: 8px 8px 6px 8px;
@@ -20,7 +20,7 @@
   margin-right: 10px;
 }
 .wish-list-icon-container i:hover {
-  background-color: #cf292b;
+  background-color: #4fb68d;
   color: #efefef;
 }
 

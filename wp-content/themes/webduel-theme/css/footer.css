@@ -63,7 +63,11 @@ footer {
   margin: -10px 0 10px 0;
   width: 145px;
 }
-
+/* contact section  */
+.contact .opening-hours span {
+  display: block;
+  margin-left: 25px;
+}
 /*copyright */
 .copyright-container {
   border-top: 1px solid white;
@@ -87,15 +91,44 @@ footer {
   color: black;
 }
 .footer .mailchimp-form .button {
-  background: #cf292b;
+  background: #4fb68d;
   border: none;
   color: white;
   border-radius: 2px !important;
 }
 .footer .mailchimp-form .button:hover {
-  background: #fd7a7a !important;
+  background: #253237 !important;
+}
+/* quick nav */
+
+.support-container img {
+  width: 100%;
+}
+.support-container a {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
 }
 
+/* payment options */
+.payment-section ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (max-width: 800px) {
+  .payment-section ul {
+    justify-content: flex-start;
+  }
+  .payment-section h6 {
+    text-align: left !important;
+  }
+}
+.payment-section img {
+  width: 50px;
+  margin: 10px 5px 0 5px;
+}
 /* arrow to the header */
 .go-to-header {
   position: fixed;

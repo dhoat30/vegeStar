@@ -61,15 +61,15 @@
   padding: 2px 5px !important;
 }
 /* owl carousel category */
-.owl-item {
+.category-section .owl-item {
   margin: 20px 0;
   border: 1px solid #ebebeb;
 }
-.owl-item img {
+.category-section .owl-item img {
   width: 100% !important;
   height: auto;
 }
-.owl-carousel {
+.category-section .owl-carousel {
   width: 95% !important;
   margin: 0 auto;
   max-width: 1366px !important;
@@ -177,7 +177,7 @@
   padding: 50px 20px 80px 30px;
 }
 
-.review-section .review-cards .card {
+.review-section .review-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -241,6 +241,20 @@
   bottom: -40px;
   color: rgba(0, 0, 0, 0.3);
 }
+.review-section .owl-nav {
+  margin: 0 auto;
+  display: block;
+  left: 50% !important;
+  position: absolute;
+  transform: translate(-50%);
+}
+.review-section .owl-nav button span {
+  color: white !important;
+}
+
+.review-section .owl-item {
+  height: 370px !important;
+}
 @media (max-width: 1010px) {
   .review-section .review-cards {
     flex-direction: column;
@@ -248,12 +262,31 @@
   .review-section .review-cards .review {
     margin-top: 70px;
   }
+  .review-section .owl-item {
+    height: auto !important;
+  }
 }
 @media (max-width: 800px) {
   .review-section .review-cards .review::before {
     left: -25px;
+    content: "";
   }
   .review-section .review-cards .review::after {
     right: -25px;
+    content: "";
+  }
+}
+@media (max-width: 400px) {
+  .review-section {
+    background: #4fb68d;
+    margin: 0 0;
+    padding: 0 0;
+  }
+  .review-section .review-section-card {
+    background: #4fb68d;
+    box-shadow: 1px 1px 20px 3px rgb(0 0 0 / 10%);
+    max-width: 1200px;
+    width: 100%;
+    padding: 50px 10px 80px 10px;
   }
 }

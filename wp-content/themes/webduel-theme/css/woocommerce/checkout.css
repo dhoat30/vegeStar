@@ -33,10 +33,10 @@
 }
 
 .woocommerce-info {
-  border-top-color: #cf292b !important;
+  border-top-color: #4fb68d !important;
 }
 .woocommerce-info::before {
-  color: #cf292b !important;
+  color: #4fb68d !important;
 }
 
 /*form input*/

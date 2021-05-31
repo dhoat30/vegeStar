@@ -6,8 +6,8 @@
 .trade-register-button,
 .trade-login-btn {
   background: white !important;
-  color: #cf292b !important;
-  border: 1px solid #cf292b;
+  color: #4fb68d !important;
+  border: 1px solid #4fb68d;
 }
 
 .trade-register-button:hover {
@@ -62,7 +62,7 @@ ul {
   font-size: 30px;
   cursor: pointer;
   font-weight: 100;
-  color: #cf292b;
+  color: #4fb68d;
 }
 .login-overlay i:hover {
   color: #525659;
@@ -82,7 +82,7 @@ ul {
 
 /*regsiter Page*/
 #register-page #submit {
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
 }
 #register-page #submit:hover {
   background-color: #525659 !important;
@@ -105,5 +105,5 @@ ul {
   display: block !important;
 }
 .bc-btn--lost-password {
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
 }

@@ -102,3 +102,16 @@ add_action('woocommerce_checkout_before_order_review_heading', function(){
   echo '<div class="order-review-container">';
 });
 add_action('woocommerce_review_order_after_payment', 'closing_div');
+
+// remove woocommerce tabs
+remove_action('woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 40);
+
+// add desciption here
+add_action('woocommerce_single_product_summary', 'add_description', 9); 
+function add_description(){
+  global $product;
+  echo '<p class="font-s-regular margin-elements">'; 
+  echo $product->get_description();
+  echo '</p>';
+
+}

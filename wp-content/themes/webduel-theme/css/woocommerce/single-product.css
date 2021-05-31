@@ -182,12 +182,12 @@ p {
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   transition: all 0.15s ease-in-out !important;
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
   letter-spacing: 1px !important;
   font-family: "Roboto", sans-serif !important;
 }
 .single-product #main .single_add_to_cart_button:hover {
-  background: #fd7a7a !important;
+  background: #253237 !important;
 }
 
 /*availability */

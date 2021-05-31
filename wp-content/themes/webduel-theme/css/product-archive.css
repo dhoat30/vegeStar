@@ -84,7 +84,7 @@
   display: none;
 }
 .pagination .page-numbers {
-  color: #cf292b;
+  color: #4fb68d;
   padding: 0 0 0 5px;
 }
 .pagination .page-numbers:hover {
@@ -102,8 +102,8 @@
 .fs-label-wrap {
   position: relative;
   background-color: #fff;
-  border: 1px solid #cf292b !important;
-  color: #cf292b;
+  border: 1px solid #4fb68d !important;
+  color: #4fb68d;
   cursor: pointer !important;
   transition-timing-function: ease-in-out;
   transition-duration: 100ms;
@@ -115,7 +115,7 @@
   color: #525659 !important;
 }
 .fs-arrow {
-  border-top: 5px solid #cf292b !important;
+  border-top: 5px solid #4fb68d !important;
 }
 
 .facetwp-facet {
@@ -125,14 +125,14 @@
   margin-top: 20px;
 }
 .noUi-connect {
-  background: #cf292b !important;
+  background: #4fb68d !important;
 }
 
 .facet-reset-btn {
-  border: 1px solid #cf292b;
+  border: 1px solid #4fb68d;
   padding: 5px 10px;
   background: white;
-  color: #cf292b;
+  color: #4fb68d;
   cursor: pointer;
   font-size: 15px;
   letter-spacing: 1px;
@@ -140,7 +140,7 @@
   transition-duration: 300ms;
 }
 .facet-reset-btn:hover {
-  background: #cf292b;
+  background: #4fb68d;
   color: white;
 }
 .facetwp-slider-reset {
@@ -191,5 +191,5 @@
 }
 /*sale*/
 .bc-product-flag--sale {
-  background-color: #cf292b !important;
+  background-color: #4fb68d !important;
 }
