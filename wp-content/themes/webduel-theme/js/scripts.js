@@ -1,12 +1,10 @@
 import '../style.css';
 let $ = jQuery;
 
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel';
-import AddToCartAnimation from './modules/AddToCartAnimation';
+
 import Overlay from './modules/overlay';
-
-
+import ProductSlider from './modules/ProductSlider';
+import ReviewSlider from './modules/ReviewSlider';
 import PopUpCart from './modules/PopUpCart';
 import SearchTrigger from './modules/SearchTrigger';
 // trade directory
@@ -15,8 +13,10 @@ import SearchTrigger from './modules/SearchTrigger';
 
 window.onload = function () {
   //add to cart animation- show cart option on hover
+  //review slider
+  const reviewSlider = new ReviewSlider();
   //account 
-
+  const productSlider = new ProductSlider();
   const overlay = new Overlay();
 
   const popUpCart = new PopUpCart();

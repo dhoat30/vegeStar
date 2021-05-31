@@ -44,7 +44,7 @@ get_header();
                                             <picture > 
                                                     <source media="(min-width:700px)" srcset="<?php echo get_the_post_thumbnail_url(null,"full"); ?>">
                                                     <source media="(min-width:465px)" srcset="<?php echo get_the_post_thumbnail_url(null,"large"); ?>">
-                                                    <img   src="<?php echo esc_url($imgUrl);?>" alt="<?php echo get_the_title();?>">
+                                                    <img   src="<?php echo esc_url($imgUrl);?>" alt="<?php echo get_the_title();?>" loading="lazy">
                                                 </picture>   
 
                                             </a>                       
@@ -78,7 +78,7 @@ get_header();
         <h3 class="thin font-s-regular">We add specials every week.</h3>                                 
     </div>
 
-    <ul class="products row-container">
+    <div class="products row-container owl-carousel owl-theme">
         <?php 
 
             $argsCategory = array(
@@ -103,9 +103,9 @@ get_header();
                 $percentage = $product->get_sale_price()/ $product->get_regular_price() *100;
                 $percentage = 100 - $percentage;
                 ?>
-            <li class="product">
+          
                 <a class="rm-txt-dec product-card" href="<?php echo get_the_permalink();?>">
-                        <img src="<?php echo get_the_post_thumbnail_url(null,"medium")?>" alt="<?php echo get_the_title();?>">
+                        <img src="<?php echo get_the_post_thumbnail_url(null,"medium")?>" alt="<?php echo get_the_title();?>" loading="lazy">
                         <h3 class="regular font-s-regular"><?php echo wp_trim_words($product->get_name(), 4);?></h3>
                         <p class="paragraph price">
                             <span class="regular-price regular light-grey">$<?php echo round($product->get_regular_price(), 2);?> </span>
@@ -115,131 +115,128 @@ get_header();
                 </a>
                 
 
-            </li>
+            
             <?php 
 
                 }
                 wp_reset_postdata();
                 ?>
-    </ul>
+    </div>
 
               
 
 </div>
 
-
-<!-- USP  -->
-<div class="usp-section">
-    <div class="usp-container row-container">
-        <div class="lg-font-sz center-align title-underline">What Do We Do Better? </div>                                    
+<!-- category section - All categories  -->
+<div class="category-section off-white-bc margin-row">
+    <div class="category-container row-container">
+        <h2 class="column-s-font regular">Shop By Category </h2>   
+        <h3 class="thin font-s-regular">Get fresh product everyday. </h3>                                 
     </div>
 
-    <div class="flex row-container">
+    <div class="row-container category-cards flex">
         <?php 
 
-            $argsUSP = array(
-                'post_type' => 'usp', 
+            $argsCategory = array(
+                'post_type' => 'category', 
                 'posts_per_page' => -1
             );
-            $usp = new WP_Query( $argsUSP );
+            $category = new WP_Query( $argsCategory );
 
-            while($usp->have_posts()){ 
-                $usp->the_post(); 
+            while($category->have_posts()){ 
+                $category->the_post(); 
+
                 ?>
-            <div class="cards">
-                <div class="img-container">
-                    <img src="<?php echo get_the_post_thumbnail_url(null,"large")?>" alt="<?php echo get_the_title();?>">
+          
+                <a class="rm-txt-dec category-card" href="<?php echo get_the_permalink();?>">
+                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
+                        <div class="button-container">
+                            <h3 class="regular column-s-font center-align white margin-elements"><?php echo get_the_title();?></h3>
+                            <div class="link center-align white"> Shop Now</div>
+                        </div>
+                       
                         
-                </div>
-                <div class="content-container">
-                    <div class="section-ft-size "><?php echo get_the_title();?></div>
-                    <?php the_content();?>
-                </div>
-                        
-                
+                </a>
 
-            </div>
             <?php 
 
                 }
                 wp_reset_postdata();
                 ?>
     </div>
-
-              
-
 </div>
 
+<div class="gallery-section">
 
-<!-- about us -->
 
-<section class="about-section">
-    <div class="flex row-container">
+    <div class="row-container gallery-cards flex">
+        <?php 
 
-    <?php 
-
-            $brandLogo = array(
-                'pagename' => 'never-settling-for-good-enough',
-                'posts_per_page'=> -1
+            $argsGallery = array(
+                'post_type' => 'gallery', 
+                'posts_per_page' => -1
             );
-            $brandLogoQuery = new WP_Query( $brandLogo );
+            $gallery = new WP_Query( $argsGallery );
 
-            while($brandLogoQuery->have_posts()){ 
-                $brandLogoQuery->the_post(); 
+            while($gallery->have_posts()){ 
+                $gallery->the_post(); 
 
                 ?>
-        <div class="content">
-            <div class="section-ft-size "><?php echo get_the_title();?></div>
-            <p class="paragraph"><?php echo get_the_content();?></p>
-            <a class="button rm-txt-dec btn-dk-red" href="<?php echo get_field('about_us_page_link');?>">About Us</a>
-        </div>
-        <div class="img-container">
-            <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"large"); ?>" alt="<?php echo get_the_title();?>">
+                        
+                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
+ 
+            <?php 
 
-        </div>
-       
-
-    <?php 
-            }
-            wp_reset_postdata();
-
-    ?>
-
-    </div>
-</section>
-
-<!-- brand  -->
-<section class="brand-stripe">
-    <div class="row-container">
-        <div class="lg-font-sz center-align title-underline ">Our Range </div>                                    
-    </div>
-    <div class="flex row-container">
-
-    <?php 
-
-            $brandLogo = array(
-                'post_type' => 'brand',
-                'posts_per_page'=> -1
-            );
-            $brandLogoQuery = new WP_Query( $brandLogo );
-
-            while($brandLogoQuery->have_posts()){ 
-                $brandLogoQuery->the_post(); 
-
+                }
+                wp_reset_postdata();
                 ?>
-        
-        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium"); ?>" alt="<?php echo get_the_title();?>">
-       
-
-    <?php 
-            }
-            wp_reset_postdata();
-
-    ?>
-
     </div>
-</section>
+</div>
 
+<!-- review section -->
+<section class="review-section">
+    <div class="review-section-card row-container">
+        <div class="review-container ">
+            <div class="column-s-font center-align white">Customer Reviews </div>   
+        </div>
+        <div class="review-cards owl-carousel">
+                    <?php 
+
+                $argsReview = array(
+                    'post_type' => 'reviews', 
+                    'posts_per_page' => 1
+                );
+                $review = new WP_Query( $argsReview );
+
+                while($review->have_posts()){ 
+                    $review->the_post(); 
+
+                    ?>
+                            <div class="card">
+                                <div class="image-container">
+                                    <div class="backdrop"></div>
+                                    <div class="image">
+                                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
+                                        <h6 class="font-s-med ft-wt-med center-align"><?php echo get_the_title();?></h6>
+                                    </div>
+                                </div>
+
+                                <div class="review white">
+                                 <?php echo get_field('review');?>
+                                </div>
+                                
+                            </div>
+                            
+                            
+                <?php 
+
+                    }
+                    wp_reset_postdata();
+                    ?>
+        </div>
+    </div>
+    
+</section>
 <script>
     const slides = document.querySelectorAll('.slide');
     const next = document.querySelector('#next');

@@ -26,8 +26,8 @@
   margin-top: 20px !important;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   justify-content: flex-end;
-  align-items: flex-start;
   border: 1px solid #ebebeb;
   flex-wrap: wrap;
   margin-right: 20px !important;
@@ -36,6 +36,7 @@
   flex-basis: calc(18% - 22.5px);
   width: calc(18% - 22.5px) !important;
 }
+
 .products .product:hover {
   border: 1px solid #4fb68d;
 }

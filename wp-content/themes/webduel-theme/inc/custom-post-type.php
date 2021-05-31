@@ -7,9 +7,9 @@
 add_post_type_support( "sliders", "thumbnail" ); 
 
 add_post_type_support( "category", "thumbnail" ); 
-add_post_type_support( "usp", "thumbnail" );
-// add_post_type_support( "shop-my-fav", "thumbnail" );
- add_post_type_support( "brand", "thumbnail" );
+add_post_type_support( "gallery", "thumbnail" );
+add_post_type_support( "reviews", "thumbnail" );
+//  add_post_type_support( "brand", "thumbnail" );
 
 function register_custom_type2(){ 
     //brand logo
@@ -53,7 +53,7 @@ function register_custom_type2(){
       "show_ui" => true, 
       "hierarchical" => true,
       "labels" => array(
-         "name" => "Categories", 
+         "name" => "Home Page Categories", 
          "add_new_item" => "Add New Category", 
          "edit_item" => "Edit Category", 
          "all_items" => "All Categories", 
@@ -63,57 +63,74 @@ function register_custom_type2(){
    )
    );
 
-//    //blogs post type
-   register_post_type("usp", array(
-      'show_in_rest' => true,
-      "supports" => array("title", 'editor'), 
-      "public" => true, 
-      "show_ui" => true, 
-      "hierarchical" => true,
-      "labels" => array(
-         "name" => "USPs", 
-         "add_new_item" => "Add New USP", 
-         "edit_item" => "Edit USP", 
-         "all_items" => "All USPs", 
-         "singular_name" => "USP"
-      ), 
-      "menu_icon" => "dashicons-text-page"
-   )
-   );
-
-//    //loving post type
-//    register_post_type("shop-my-fav", array(
-//       "supports" => array("title", "page-attributes"), 
-//       "public" => true, 
-//       "show_ui" => true, 
-//       "hierarchical" => true,
-//       "labels" => array(
-//          "name" => "Shop My Favs", 
-//          "add_new_item" => "Add New Shop My Fav", 
-//          "edit_item" => "Edit Shop My Fav", 
-//          "all_items" => "All Shop My Favs", 
-//          "singular_name" => "Shop My Fav"
-//       ), 
-//       "menu_icon" => "dashicons-welcome-write-blog"
-//    )
-//    );
-   
-//    //shop by brand page post type
-   register_post_type("brand", array(
+   //category post type
+   register_post_type("gallery", array(
       "supports" => array("title"), 
       "public" => true, 
       "show_ui" => true, 
       "hierarchical" => true,
       "labels" => array(
-         "name" => "Brands", 
-         "add_new_item" => "Add New Brand", 
-         "edit_item" => "Edit Brand", 
-         "all_items" => "All Brands", 
-         "singular_name" => "Brand"
+         "name" => "Home Page Gallery", 
+         "add_new_item" => "Add New Gallery", 
+         "edit_item" => "Edit Gallery", 
+         "all_items" => "All Gallery", 
+         "singular_name" => "Gallery"
       ), 
-      "menu_icon" => "dashicons-shield"
+      "menu_icon" => "dashicons-format-gallery"
    )
    );
+
+//blogs post type
+//    register_post_type("usp", array(
+//       'show_in_rest' => true,
+//       "supports" => array("title", 'editor'), 
+//       "public" => true, 
+//       "show_ui" => true, 
+//       "hierarchical" => true,
+//       "labels" => array(
+//          "name" => "USPs", 
+//          "add_new_item" => "Add New USP", 
+//          "edit_item" => "Edit USP", 
+//          "all_items" => "All USPs", 
+//          "singular_name" => "USP"
+//       ), 
+//       "menu_icon" => "dashicons-text-page"
+//    )
+//    );
+
+//    //loving post type
+   register_post_type("reviews", array(
+      "supports" => array("title", "page-attributes"), 
+      "public" => true, 
+      "show_ui" => true, 
+      "hierarchical" => true,
+      "labels" => array(
+         "name" => "Reviews", 
+         "add_new_item" => "Add New Review", 
+         "edit_item" => "Edit Review", 
+         "all_items" => "All Reviews", 
+         "singular_name" => "Review"
+      ), 
+      "menu_icon" => "dashicons-feedback"
+   )
+   );
+   
+//    //shop by brand page post type
+   // register_post_type("brand", array(
+   //    "supports" => array("title"), 
+   //    "public" => true, 
+   //    "show_ui" => true, 
+   //    "hierarchical" => true,
+   //    "labels" => array(
+   //       "name" => "Brands", 
+   //       "add_new_item" => "Add New Brand", 
+   //       "edit_item" => "Edit Brand", 
+   //       "all_items" => "All Brands", 
+   //       "singular_name" => "Brand"
+   //    ), 
+   //    "menu_icon" => "dashicons-shield"
+   // )
+   // );
 
 //       // typrewriter effect 
 
