@@ -17,6 +17,7 @@ class ProductSlider {
             responsiveBaseElement: ".row-container",
             responsiveClass: true,
             stagePadding: 50,
+            rewind: true,
             responsive: {
                 0: {
                     items: 1

@@ -27,10 +27,10 @@ require get_theme_file_path('/inc/nav-registeration.php');
    if (strstr($_SERVER['SERVER_NAME'], 'localhost')) {
       wp_enqueue_script('main', 'http://localhost:3000/bundled.js',  array( 'jquery' ), '1.0', true);
     } else {
-      wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.6a4078e38b09a337f161.js'),  array( 'jquery' ), '1.0', true);
-      wp_enqueue_script('main', get_theme_file_uri('/bundled-assets/scripts.d90ab577b361efb8e194.js'), NULL, '1.0', true);
-      wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.d90ab577b361efb8e194.css'));      
-      wp_enqueue_style('our-vendor-styles', get_theme_file_uri('/bundled-assets/styles.d90ab577b361efb8e194.css'));
+      wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.aebecbb789db7969773b.js'),  array( 'jquery' ), '1.0', true);
+      wp_enqueue_script('main', get_theme_file_uri('/bundled-assets/scripts.c473c928e64d4e11f986.js'), NULL, '1.0', true);
+      wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.c473c928e64d4e11f986.css'));      
+      wp_enqueue_style('our-vendor-styles', get_theme_file_uri('/bundled-assets/styles.c473c928e64d4e11f986.css'));
 
     }
     wp_localize_script("main", "inspiryData", array(
@@ -142,7 +142,16 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
   ob_start();
 
   ?>
-    <div class="cart-box">
+   <div class="cart-box">
+            <div class="top-banner dark-green-bc">
+                <div class="items">
+                    <span> <i class="fal fa-shopping-cart white regular"></i></span>
+                    <span class="white regular font-s-regular ">ITEMS IN YOUR CART</span>    
+                </div>
+                <div class="close-button-container">
+                    <span class="close-button white font-s-regular ">CLOSE <i class="fal fa-times white font-s-regular "></i></span>
+                </div>
+            </div>
                 <div class="flex-card">
                         <?php
 
@@ -217,9 +226,9 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
                     ?>
 			    </div>
                 <div class="pop-up-footer">
-                    <div class="total-container">
+                    <div class="total-container dark-green-bc">
                         
-                        <div class="total roboto-font">
+                        <div class="total roboto-font white">
                             Total: $<?php 
                             $totalAmount = str_replace(".00", "", (string)number_format (WC()->cart->total, 2, ".", ""));
                             echo number_format($totalAmount); ?>
@@ -234,7 +243,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
                 </div>
             </div>
  <?php
-  $fragments['.cart-box'] = ob_get_clean();
+$fragments['.cart-box'] = ob_get_clean();
   return $fragments;
 }
 

@@ -7,9 +7,10 @@ class PopUpCart {
     }
 
     events() {
-
         $('.header .shopping-cart .cart-items-header').on('click', this.openCart)
         $(document).on('click', '.cart-box .cont-shopping a', this.closeCart)
+        // close cart
+        $(document).on('click', '.top-banner .close-button-container .close-button', this.closeCart)
         // $('.cart-popup-container .fa-times').on('click', this.closeCart)
         $(document).on('click', '.single_add_to_cart_button', this.ajaxAddToCart)
         // remove item from cart ajax 

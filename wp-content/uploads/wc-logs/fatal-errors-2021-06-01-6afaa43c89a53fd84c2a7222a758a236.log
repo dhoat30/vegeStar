@@ -1,0 +1,24 @@
+2021-06-01T12:06:19+00:00 CRITICAL Uncaught Error: Call to a member function get_name() on null in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/page-contact.php:26
+Stack trace:
+#0 /Applications/MAMP/htdocs/vege-star/wp-includes/template-loader.php(106): include()
+#1 /Applications/MAMP/htdocs/vege-star/wp-blog-header.php(19): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/vege-star/index.php(17): require('/Applications/M...')
+#3 {main}
+  thrown in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/page-contact.php on line 26
+
+2021-06-01T12:06:38+00:00 CRITICAL Uncaught Error: Call to a member function get_name() on null in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/page-contact.php:25
+Stack trace:
+#0 /Applications/MAMP/htdocs/vege-star/wp-includes/template-loader.php(106): include()
+#1 /Applications/MAMP/htdocs/vege-star/wp-blog-header.php(19): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/vege-star/index.php(17): require('/Applications/M...')
+#3 {main}
+  thrown in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/page-contact.php on line 25
+
+2021-06-01T12:06:49+00:00 CRITICAL Uncaught Error: Call to a member function get_name() on null in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/page-contact.php:25
+Stack trace:
+#0 /Applications/MAMP/htdocs/vege-star/wp-includes/template-loader.php(106): include()
+#1 /Applications/MAMP/htdocs/vege-star/wp-blog-header.php(19): require_once('/Applications/M...')
+#2 /Applications/MAMP/htdocs/vege-star/index.php(17): require('/Applications/M...')
+#3 {main}
+  thrown in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/page-contact.php on line 25
+

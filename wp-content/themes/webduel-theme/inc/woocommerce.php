@@ -111,7 +111,7 @@ add_action('woocommerce_single_product_summary', 'add_description', 9);
 function add_description(){
   global $product;
   echo '<p class="font-s-regular margin-elements">'; 
-  echo $product->get_description();
+  echo strip_tags($product->get_description());
   echo '</p>';
 
 }

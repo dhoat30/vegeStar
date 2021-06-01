@@ -167,6 +167,15 @@
         <div class="cart-popup-container box-shadow">
             
         <div class="cart-box">
+            <div class="top-banner dark-green-bc">
+                <div class="items">
+                    <span> <i class="fal fa-shopping-cart white regular"></i></span>
+                    <span class="white regular font-s-regular ">ITEMS IN YOUR CART</span>    
+                </div>
+                <div class="close-button-container">
+                    <span class="close-button white font-s-regular ">CLOSE <i class="fal fa-times white font-s-regular "></i></span>
+                </div>
+            </div>
                 <div class="flex-card">
                         <?php
 
@@ -241,9 +250,9 @@
                     ?>
 			    </div>
                 <div class="pop-up-footer">
-                    <div class="total-container">
+                    <div class="total-container dark-green-bc">
                         
-                        <div class="total roboto-font">
+                        <div class="total roboto-font white">
                             Total: $<?php 
                             $totalAmount = str_replace(".00", "", (string)number_format (WC()->cart->total, 2, ".", ""));
                             echo number_format($totalAmount); ?>

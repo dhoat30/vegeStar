@@ -15,8 +15,6 @@ class ReviewSlider {
             autoplayTimeout: 3000,
             autoplayHoverPause: true,
             responsiveClass: true
-
-
         });
 
     }
