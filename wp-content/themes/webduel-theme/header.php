@@ -134,7 +134,7 @@
                 <?php
                 wp_nav_menu(
                         array(
-                            'theme_location' => 'Hospo_main_menu', 
+                            'theme_location' => 'main_menu', 
                             'container_id' => 'top-navbar'
                         ));
                 ?>
@@ -148,7 +148,7 @@
                         echo  do_shortcode('[ivory-search id="79" title="Default Search Form"]');
                         }
                         else{
-                            echo do_shortcode('[ivory-search id="26873" title="Default Search Form"]');
+                            echo do_shortcode('[ivory-search id="230974" title="Default Search Form"]');
                         }
                         
                         ?>
@@ -214,7 +214,7 @@
                             <div class="price-container">
                             <h6 class="font-s-regular roboto-font bold">$<?php echo number_format($product->price * $quantity) ?></h6>
                             </div>
-                            <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i>
+                            <!-- <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i> -->
                         </a>
 
                         <?php
@@ -233,10 +233,10 @@
                                 </div>
                                 
                                 <div class="price-container">
-                                <h6 class="font-s-regular roboto-font bold">$<?php echo number_format($product->price * $quantity); ?></h6>
+                                <h6 class="font-s-regular roboto-font bold">$<?php echo number_format($product->price * $quantity, 2); ?></h6>
                                 </div>
                                 
-                                <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i>
+                                <!-- <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i> -->
                             </a>
                             <?php
                         }

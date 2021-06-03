@@ -28,9 +28,9 @@ require get_theme_file_path('/inc/nav-registeration.php');
       wp_enqueue_script('main', 'http://localhost:3000/bundled.js',  array( 'jquery' ), '1.0', true);
     } else {
       wp_enqueue_script('our-vendors-js', get_theme_file_uri('/bundled-assets/vendors~scripts.aebecbb789db7969773b.js'),  array( 'jquery' ), '1.0', true);
-      wp_enqueue_script('main', get_theme_file_uri('/bundled-assets/scripts.c473c928e64d4e11f986.js'), NULL, '1.0', true);
-      wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.c473c928e64d4e11f986.css'));      
-      wp_enqueue_style('our-vendor-styles', get_theme_file_uri('/bundled-assets/styles.c473c928e64d4e11f986.css'));
+      wp_enqueue_script('main', get_theme_file_uri('/bundled-assets/scripts.f3af940ffa3d512267fd.js'), NULL, '1.0', true);
+      wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.f3af940ffa3d512267fd.css'));      
+      wp_enqueue_style('our-vendor-styles', get_theme_file_uri('/bundled-assets/styles.aebecbb789db7969773b.css'));
 
     }
     wp_localize_script("main", "inspiryData", array(
@@ -190,7 +190,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
                             <div class="price-container">
                             <h6 class="font-s-regular roboto-font bold">$<?php echo number_format($product->price * $quantity) ?></h6>
                             </div>
-                            <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i>
+                            <!-- <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i> -->
                         </a>
 
                         <?php
@@ -209,10 +209,10 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
                                 </div>
                                 
                                 <div class="price-container">
-                                <h6 class="font-s-regular roboto-font bold">$<?php echo number_format($product->price * $quantity); ?></h6>
+                                <h6 class="font-s-regular roboto-font bold">$<?php echo number_format($product->price * $quantity, 2); ?></h6>
                                 </div>
                                 
-                                <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i>
+                                <!-- <i class="fal fa-times remove-cart-item-btn" data-productID="<?php echo $product_id;?>"></i> -->
                             </a>
                             <?php
                         }
@@ -306,6 +306,7 @@ function remove_item_from_cart() {
 
     add_action('wp_ajax_remove_item_from_cart', 'remove_item_from_cart');
     add_action('wp_ajax_nopriv_remove_item_from_cart', 'remove_item_from_cart');
+    
 
 //   ajax login 
 function ajax_login_init(){

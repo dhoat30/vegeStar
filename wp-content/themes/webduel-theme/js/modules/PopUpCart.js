@@ -12,7 +12,7 @@ class PopUpCart {
         // close cart
         $(document).on('click', '.top-banner .close-button-container .close-button', this.closeCart)
         // $('.cart-popup-container .fa-times').on('click', this.closeCart)
-        $(document).on('click', '.single_add_to_cart_button', this.ajaxAddToCart)
+        // $(document).on('click', '.single_add_to_cart_button', this.ajaxAddToCart)
         // remove item from cart ajax 
         $(document).on('click', '.cart-popup-container .fa-times', this.removeItem)
     }

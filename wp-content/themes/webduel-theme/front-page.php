@@ -161,9 +161,21 @@ get_header();
                         <img src="<?php echo get_the_post_thumbnail_url(null,"medium")?>" alt="<?php echo get_the_title();?>" loading="lazy">
                         <h3 class="regular font-s-regular"><?php echo wp_trim_words($product->get_name(), 4);?></h3>
                         <p class="paragraph price">
-                            <span class="regular-price regular light-grey">$<?php echo round($product->get_regular_price(), 2);?> </span>
-                            <span class="sale-price regular dark-red">$<?php if( $product->is_on_sale() ){echo round($product->get_sale_price(), 2);}?></span>
-                            <span class="percentage regular dark-red-bc white border-radius-min">-<?php echo round($percentage, 0, PHP_ROUND_HALF_DOWN);?>%</span>
+                            <?php 
+                            if($product->get_sale_price()){
+                                ?>
+                                <span class="regular-price regular light-grey">$<?php echo round($product->get_regular_price(), 2);?> </span>
+                                <span class="sale-price regular dark-red">$<?php if( $product->is_on_sale() ){echo round($product->get_sale_price(), 2);}?></span>
+                                <span class="percentage regular dark-red-bc white border-radius-min">-<?php echo round($percentage, 0, PHP_ROUND_HALF_DOWN);?>%</span>
+                                <?php 
+                            }
+                            else{
+                                ?>
+                                <span class="regular">$<?php echo round($product->get_regular_price(), 2);?> </span>
+                                <?php 
+                            }
+                            ?>
+                            
                         </p>
                 </a>
                 
@@ -202,7 +214,7 @@ get_header();
 
                 ?>
           
-                <a class="rm-txt-dec category-card" href="<?php echo get_the_permalink();?>">
+                <a class="rm-txt-dec category-card" href="<?php echo get_field('add_category_link');?>">
                         <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
                         <div class="button-container">
                             <h3 class="regular column-s-font center-align white margin-elements"><?php echo get_the_title();?></h3>

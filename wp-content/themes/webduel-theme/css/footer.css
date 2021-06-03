@@ -105,9 +105,9 @@ footer {
   width: 100%;
 }
 .support-container a {
-  margin-top: 20px;
-  display: block;
+  display: block !important;
   text-align: center;
+  margin: 20px auto 0 auto !important;
 }
 
 /* payment options */

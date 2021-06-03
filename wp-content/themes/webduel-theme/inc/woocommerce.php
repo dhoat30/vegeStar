@@ -12,7 +12,7 @@ function add_woocommerce_filter(){
       echo do_shortcode('	[br_filters_group group_id=204]');
     }
     else{
-      echo do_shortcode('[br_filters_group group_id=26953]');
+      echo do_shortcode('[br_filters_group group_id=231070]');
     }
     
     echo '<br> <br>';

@@ -4,7 +4,7 @@
     register_nav_menus( 
        array(
            "top-navbar" => "Top Navbar",
-          "Hospo_main_menu" => "Hospo Main Menu",
+          "main_menu" => "Main Menu",
           "footer-quick-links" => 'Footer Quick Links'
           
        )
