@@ -83,7 +83,7 @@ span {
   box-shadow: none;
   opacity: 1;
   transition: all 0.15s ease-in-out !important;
-  background-color: #4fb68d !important;
+  background: url("http://localhost/vege-star/wp-content/uploads/2021/08/vege-star-logo-1-1-768x103.jpg");
   letter-spacing: 1px !important;
   align-self: flex-end !important;
   display: block !important;

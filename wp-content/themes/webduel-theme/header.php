@@ -97,23 +97,26 @@
 
 
         <!--main navbar --> 
-        <nav class="navbar dark-green-bc">
+      
+        <?php 
+
+            $argsLogo = array(
+                'pagename' => 'contact', 
+                'posts_per_page' => 1
+
+            );
+            $logo = new WP_Query( $argsLogo );
+
+            while($logo->have_posts()){ 
+                $logo->the_post(); 
+                $patternImage = get_field('pattern');
+                ?>
+
+        <nav class="navbar" style='background: url(<?php print_r($patternImage['sizes']['medium_large'])?>); width: 100%; height: auto; background-size: cover; '>
             <div class="container row-container">
                 <div class="logo-container">
 
-                        <?php 
-
-                        $argsLogo = array(
-                            'pagename' => 'contact', 
-                            'posts_per_page' => 1
-
-                        );
-                        $logo = new WP_Query( $argsLogo );
-
-                        while($logo->have_posts()){ 
-                            $logo->the_post(); 
-
-                            ?>
+                        
                             <a href="<?php echo get_site_url(); ?>">
                                 <?php 
                                 $image = get_field('logo');
