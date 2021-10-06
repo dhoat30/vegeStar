@@ -1,0 +1,120 @@
+2021-09-29T00:17:20+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T00:42:35+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T01:36:03+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T02:28:27+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T03:00:16+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T05:52:05+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T06:41:28+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T09:01:22+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T12:22:53+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T12:37:35+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T16:45:42+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T17:58:00+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T20:52:55+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T22:55:26+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+
+2021-09-29T23:41:50+00:00 CRITICAL Uncaught Error: Call to a member function get_description() on string in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php:94
+Stack trace:
+#0 /home/customer/www/vegestar.co.nz/public_html/wp-includes/class-wp-hook.php(303): change_yoast_desc('', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#1 /home/customer/www/vegestar.co.nz/public_html/wp-includes/plugin.php(189): WP_Hook->apply_filters('', Array)
+#2 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-presenter.php(60): apply_filters('wpseo_metadesc', '', Object(Yoast\WP\SEO\Presentations\Indexable_Error_Page_Presentation))
+#3 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/abstract-indexable-tag-presenter.php(37): Yoast\WP\SEO\Presenters\Meta_Description_Presenter->get()
+#4 /home/customer/www/vegestar.co.nz/public_html/wp-content/plugins/wordpress-seo/src/presenters/meta-description-pres in /home/customer/www/vegestar.co.nz/public_html/wp-content/themes/webduel-theme/functions.php on line 94
+

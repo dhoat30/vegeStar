@@ -858,6 +858,7 @@ var br_savin_ajax = false;
         $(document).on('click', '.berocket_create_new', function(event) {
             event.preventDefault();
             var $this = $(this);
+            $(this).parents('.widget-inside, .berocket_simple_filter_creation').append(jQuery('<div class="berocket_aapf_disable_widget"><i class="fa fa-spinner fa-spin"></i></div>'));
             var data = $(this).data();
             $.post(ajaxurl, data, function(html) {
                 var parent = $this.parents('form').first();
@@ -866,6 +867,7 @@ var br_savin_ajax = false;
                 }
                 parent.css('position', 'relative');
                 parent.append($(html));
+                $this.parents('.widget-inside, .berocket_simple_filter_creation').find('.berocket_aapf_disable_widget .fa-spinner').remove();
                 berocket_add_submit_function_to_element();
             });
         });
@@ -883,7 +885,9 @@ var br_savin_ajax = false;
         }
         $(document).on('click', '.berocket_simple_filter_creation .berocket_simple_close', function(event) {
             event.preventDefault();
+            var $widget = $(this).parents('.berocket_simple_filter_creation').parent();
             $(this).parents('.berocket_simple_filter_creation').remove();
+            berocket_remove_disable_widget($widget);
         });
         $(document).on('change', '.berocket_new_widget_selectbox', function() {
             var edit = $(this).find('option:selected').data('edit');
@@ -895,17 +899,24 @@ var br_savin_ajax = false;
         });
     });
 })(jQuery);
+function berocket_remove_disable_widget($element) {
+    while( $element.find('.berocket_simple_filter_creation').length < $element.find('.berocket_aapf_disable_widget').length ) {
+        $element.find('.berocket_aapf_disable_widget').last().remove();
+    }
+}
 function berocket_semple_creation_single_return($this, data) {
     var $widget = $this.parent();
     jQuery('.berocket_new_widget_selectbox.single').append('<option data-name="'+data.name2+'" data-edit="'+data.edit+'" value="'+data.value+'">'+data.name+'</option>');
     $widget.find('.berocket_new_widget_selectbox.single').val(data.value).trigger('change');
     $this.remove();
+    berocket_remove_disable_widget($widget);
 }
 function berocket_semple_creation_group_return($this, data) {
     var $widget = $this.parent();
     jQuery('.berocket_new_widget_selectbox.group').append('<option data-edit="'+data.edit+'" value="'+data.value+'">'+data.name+'</option>');
     $widget.find('.berocket_new_widget_selectbox.group').val(data.value).trigger('change');
     $this.remove();
+    berocket_remove_disable_widget($widget);
 }
 //Filters Group
 (function ($){

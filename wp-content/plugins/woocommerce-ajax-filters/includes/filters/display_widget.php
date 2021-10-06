@@ -116,6 +116,12 @@ class BeRocket_AAPF_Widget {
             $this->id = $args['widget_id'];
             $this->number = $args['widget_id'];
         }
+        if( empty($instance['widget_type']) ) {
+            if( BeRocket_AAPF::$user_can_manage ) {
+                echo '<div>', __('Filter do not have <strong>Widget type</strong>', 'BeRocket_AJAX_domain'), '</div>';
+            }
+            return false;
+        }
         if( empty($this->number) || $this->number == -1 ) {
             global $berocket_aapf_shortcode_id;
             if( empty($berocket_aapf_shortcode_id) ) {
@@ -260,6 +266,11 @@ class BeRocket_AAPF_Widget {
                 }
                 $instance['type'] = $instance['new_template'] = $set_query_var_title['new_template'] = $template;
             }
+        } else {
+            if( BeRocket_AAPF::$user_can_manage ) {
+                echo '<div>', __('Filter do not have <strong>Style</strong>', 'BeRocket_AJAX_domain'), '</div>';
+            }
+            return false;
         }
 
         if( BeRocket_AAPF::$debug_mode ) {

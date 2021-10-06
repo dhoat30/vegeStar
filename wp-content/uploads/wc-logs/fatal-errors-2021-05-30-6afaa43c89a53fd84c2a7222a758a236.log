@@ -1,8 +1,0 @@
-2021-05-30T05:49:35+00:00 CRITICAL Uncaught Error: Call to a member function get_sale_price() on null in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/front-page.php:149
-Stack trace:
-#0 /Applications/MAMP/htdocs/vege-star/wp-includes/template-loader.php(106): include()
-#1 /Applications/MAMP/htdocs/vege-star/wp-blog-header.php(19): require_once('/Applications/M...')
-#2 /Applications/MAMP/htdocs/vege-star/index.php(17): require('/Applications/M...')
-#3 {main}
-  thrown in /Applications/MAMP/htdocs/vege-star/wp-content/themes/webduel-theme/front-page.php on line 149
-

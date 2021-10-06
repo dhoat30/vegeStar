@@ -6,6 +6,7 @@ use WP_Smart_Image_Resize\Utilities\File;
 use Intervention\Image\Filters\FilterInterface;
 use Intervention\Image\Image;
 use Exception;
+use WP_Smart_Image_Resize\Utilities\Env;
 
 class CreateWebP_Filter implements FilterInterface
 {
@@ -27,13 +28,16 @@ class CreateWebP_Filter implements FilterInterface
         if ( ! wp_sir_get_settings()[ 'enable_webp' ] ) {
             return $image;
         }
-
+        if( ! Env::supports_webp() ){
+            return $image;
+        }
         try {
-            File::delete( $this->path );
+            @unlink($this->path);
 
-            $_image = clone $image;
-            $_image->save( $this->path )->destroy();
+            $webp_image = clone $image;
+            $webp_image->save( $this->path )->destroy();
         } catch ( Exception $e ) {
+            // Silently skip WebP generation.
         }
 
         return $image;

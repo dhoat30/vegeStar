@@ -2178,7 +2178,7 @@ if ( ! function_exists( 'br_filters_query' ) ) {
         }
 
         $queried_object = $wp_query->get_queried_object_id();
-        if ( ! empty( $queried_object ) ) {
+        if ( ! empty( $queried_object ) && $for != 'price' ) {
             $query_object = $wp_query->get_queried_object();
             if ( ! empty( $query_object->taxonomy ) && ! empty( $query_object->slug ) ) {
                 $tax_query[ $query_object->taxonomy ] = array(

@@ -19,7 +19,7 @@ class Thumbnail_Filter implements FilterInterface
     protected $imageManager;
 
 
-    public function __construct( $imageManager, $size, $preserveAspectRatio )
+    public function __construct($imageManager, $size, $preserveAspectRatio)
     {
         $this->size                = $size;
         $this->preserveAspectRatio = $preserveAspectRatio;
@@ -31,32 +31,29 @@ class Thumbnail_Filter implements FilterInterface
      *
      * @return Image
      */
-    public function applyFilter( Image $image )
+    public function applyFilter(Image $image)
     {
-        $thumbnail = clone $image;
-
-        if ( $this->preserveAspectRatio ) {
-            $thumbnail->resize( $this->size[ 'width' ], $this->size[ 'height' ], function (
+        if ($this->preserveAspectRatio) {
+            $image->resize($this->size['width'], $this->size['height'], function (
                 $constraint
             ) {
                 // Preserve the original aspect-ratio of the given image.
                 $constraint->aspectRatio();
                 // Let user decide whether to upscale image.
                 // By default, upscaling image is disabled.
-                if ( ! apply_filters( 'wp_sir_maybe_upscale', true ) ) {
+                if (!apply_filters('wp_sir_maybe_upscale', true)) {
                     $constraint->upsize();
                 }
-            } );
+            });
         } else {
             /** @var $constraint Constraint */
-            $thumbnail->fit( $this->size[ 'width' ], $this->size[ 'height' ], function ( $constraint ) {
-                if ( ! apply_filters( 'wp_sir_maybe_upscale', true ) ) {
+            $image->fit($this->size['width'], $this->size['height'], function ($constraint) {
+                if (!apply_filters('wp_sir_maybe_upscale', true)) {
                     $constraint->upsize();
                 }
-            } );
+            });
         }
 
-        return $thumbnail->filter( new Recanvas_Filter( $this->imageManager, $this->size ) );
-
+        return $image->filter(new Recanvas_Filter($this->imageManager, $this->size));
     }
 }

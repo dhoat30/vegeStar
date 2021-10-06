@@ -276,7 +276,49 @@ get_header();
     </div>
     
 </section>
+<!-- about us -->
+<section class="review-section">
+    <div class="review-section-card row-container">
+        <div class="review-container ">
+            <div class="column-s-font center-align white">Customer Reviews </div>   
+        </div>
+        <div class="owl-carousel">
+                    <?php 
 
+                $argsReview = array(
+                    'post_type' => 'reviews', 
+                    'posts_per_page' => -1
+                );
+                $review = new WP_Query( $argsReview );
+
+                while($review->have_posts()){ 
+                    $review->the_post(); 
+
+                    ?>
+                        <div class="review-cards">
+                            <div class="card">
+                                <div class="backdrop"></div>
+                                <div class="image">
+                                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
+                                    <h6 class="font-s-med ft-wt-med center-align"><?php echo get_the_title();?></h6>
+                                </div>
+                            </div>
+                            
+                            <div class="review white">
+                                <?php echo get_field('review');?>
+                            </div>
+                        </div>
+                <?php 
+
+                    }
+                    wp_reset_postdata();
+                    ?>
+
+        </div>
+       
+    </div>
+    
+</section>
 <!-- gallery container -->
 <div class="gallery-section">
 

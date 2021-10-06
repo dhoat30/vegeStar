@@ -11,11 +11,11 @@ use WP_Smart_Image_Resize\Utilities\Env;
  * @package WP_Smart_Image_Resize\Inc
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit();
 }
 
-if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
+if (!class_exists('\WP_Smart_Image_Resize\Settings')) :
     class Admin
     {
 
@@ -26,7 +26,7 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
          */
         public static function get_instance()
         {
-            if ( is_null( static::$instance ) ) {
+            if (is_null(static::$instance)) {
                 static::$instance = new Admin;
             }
 
@@ -36,39 +36,34 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
         public function init()
         {
             // Add plugin to WooCommerce menu.
-            add_action( 'admin_menu', [ $this, 'add_admin_menu' ] );
-            add_filter( 'pre_update_option_wp_sir_settings', [ $this, 'pre_update_settings' ] );
+            add_action('admin_menu', [$this, 'add_admin_menu']);
+            add_filter('pre_update_option_wp_sir_settings', [$this, 'pre_update_settings']);
             // Show Woocommerce not installed notice.
-            //add_action('admin_notices', [ $this, 'woocommerce_not_installed_notice']);
-            add_action( 'admin_notices', [ $this, 'fileinfo_not_enabled' ] );
-            add_action( 'admin_notices', [ $this, 'phpversion_not_supported' ] );
+            add_action('admin_notices', [$this, 'fileinfo_not_enabled']);
+            add_action('admin_notices', [$this, 'phpversion_not_supported']);
 
             // Initialise settings form.
-            add_action( 'admin_init', [ $this, 'init_settings' ] );
+            add_action('admin_init', [$this, 'init_settings']);
 
             // Add settings help tab.
-            add_action( 'load-woocommerce_smart-image-resize', [ $this, 'settings_help' ], 5, 3 );
+            add_action('load-woocommerce_smart-image-resize', [$this, 'settings_help'], 5, 3);
 
-            add_filter( 'plugin_action_links_' . WP_SIR_BASENAME, [
-                $this,
-                'plugin_links'
-            ] );
+            add_filter('plugin_action_links_' . WP_SIR_BASENAME, [$this, 'plugin_links']);
 
-            add_filter( 'admin_footer_text', [ $this, 'admin_footer_text' ] );
+            add_filter('admin_footer_text', [$this, 'admin_footer_text']);
         }
 
         function quota_exceeding_soon()
         {
-            if ( Quota::is_exceeding_soon() ) { ?>
+            if (Quota::is_exceeding_soon()) { ?>
                 <div class="notice notice-warning is-dismissible">
                     <p><?php _e(
                             'Smart Image Resize: Your are reaching your limit for re-sizing images.',
                             WP_SIR_NAME
                         ); ?>
-                        <a target="_blank" href="https:/sirplugin.com/#pro?utm_source=plugin&utm_campaign=notice_limit"
-                           class="button button-default"><?php _e(
-                                'Upgrade to Pro'
-                            ); ?></a> for
+                        <a target="_blank" href="https:/sirplugin.com/#pro?utm_source=plugin&utm_campaign=notice_limit" class="button button-default"><?php _e(
+                                                                                                                                                            'Upgrade to Pro'
+                                                                                                                                                        ); ?></a> for
                         unlimited images.
                     </p>
                 </div>
@@ -77,16 +72,15 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
 
         function quota_exceeded_notice()
         {
-            if ( Quota::isExceeded() ) { ?>
+            if (Quota::isExceeded()) { ?>
                 <div class="notice notice-error is-dismissible">
                     <p><?php _e(
                             'Smart Image Resize: Your have reached your limit for re-sizing images.',
                             WP_SIR_NAME
                         ); ?>
-                        <a target="_blank" href="https:/sirplugin.com/#pro?utm_source=plugin&utm_campaign=notice_limit"
-                           class="button button-default"><?php _e(
-                                'Upgrade to Pro'
-                            ); ?></a> for
+                        <a target="_blank" href="https:/sirplugin.com/#pro?utm_source=plugin&utm_campaign=notice_limit" class="button button-default"><?php _e(
+                                                                                                                                                            'Upgrade to Pro'
+                                                                                                                                                        ); ?></a> for
                         unlimited images.
                     </p>
                 </div>
@@ -97,10 +91,10 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
         {
             $screen = get_current_screen();
 
-            if ( ! function_exists( 'get_current_screen' ) ) {
+            if (!function_exists('get_current_screen')) {
                 return;
             }
-            if ( $screen->id === 'woocommerce_page_wp-smart-image-resize' ) { ?>
+            if ($screen->id === 'woocommerce_page_wp-smart-image-resize') { ?>
                 
                 
                 Need help? <a href="https://sirplugin.com" target="_blank">Contact support</a>.
@@ -108,16 +102,16 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             <?php }
         }
 
-        function plugin_links( $links )
+        function plugin_links($links)
         {
 
-            $settings_url    = admin_url( 'admin.php?page=wp-smart-image-resize' );
-            $settings_anchor = '<a href="' . $settings_url . '">' . __( 'Settings' ) . '</a>';
-            array_unshift( $links, $settings_anchor);
+            $settings_url    = admin_url('admin.php?page=wp-smart-image-resize');
+            $settings_anchor = '<a href="' . $settings_url . '">' . __('Settings') . '</a>';
+            array_unshift($links, $settings_anchor);
 
             
-            $manage_license_link    = admin_url( 'admin.php?page=wp-smart-image-resize&tab=manage_license' );
-            $manage_license_anchor = '<a href="' . $manage_license_link . '">' . __( 'License' ) . '</a>';
+            $manage_license_link    = admin_url('admin.php?page=wp-smart-image-resize&tab=manage_license');
+            $manage_license_anchor = '<a href="' . $manage_license_link . '">' . __('License') . '</a>';
             $links[] = $manage_license_anchor;
             
 
@@ -125,7 +119,7 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             return $links;
         }
 
-        function pre_update_settings( $newval )
+        function pre_update_settings($newval)
         {
 
             $defaults = [
@@ -133,43 +127,26 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
                 'jpg_convert' => 0,
                 'enable_webp' => 0,
                 'enable_trim' => 0,
-
             ];
 
-            if ( isset( $newval[ 'processable_images' ][ 'taxonomies' ] ) ) {
-                $newval[ 'processable_images' ][ 'taxonomies' ] = (array)$newval[ 'processable_images' ][ 'taxonomies' ];
+            if (isset($newval['processable_images']['taxonomies'])) {
+                $newval['processable_images']['taxonomies'] = (array)$newval['processable_images']['taxonomies'];
             } else {
-                $newval[ 'processable_images' ][ 'taxonomies' ] = [];
+                $newval['processable_images']['taxonomies'] = [];
             }
-            if ( isset( $newval[ 'processable_images' ][ 'post_types' ] ) ) {
-                $newval[ 'processable_images' ][ 'post_types' ] = (array)$newval[ 'processable_images' ][ 'post_types' ];
+            if (isset($newval['processable_images']['post_types'])) {
+                $newval['processable_images']['post_types'] = (array)$newval['processable_images']['post_types'];
             } else {
-                $newval[ 'processable_images' ][ 'post_types' ] = [];
+                $newval['processable_images']['post_types'] = [];
             }
 
-            return wp_parse_args( $newval, $defaults );
+            return wp_parse_args($newval, $defaults);
         }
 
-        /**
-         * Show notice when WooCommerce isn't installed.
-         *
-         * @return void
-         */
-        public function woocommerce_not_installed_notice()
-        {
-            if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) : ?>
-                <div class="notice notice-error is-dismissible">
-                    <p><?php _e(
-                            'Smart Image Resize requires WooCommerce to work correctly. Please install the WooCommerce Plugin first.',
-                            WP_SIR_NAME
-                        ); ?></p>
-                </div>
-            <?php endif;
-        }
 
         public function fileinfo_not_enabled()
         {
-            if ( ! extension_loaded( 'fileinfo' ) ) : ?>
+            if (!extension_loaded('fileinfo')) : ?>
                 <div class="notice notice-error  is-dismissible">
                     <p><?php _e(
                             'Smart Image Resize: PHP Fileinfo extension is not enabled, contact your hosting provider to enable it.',
@@ -181,10 +158,10 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
 
         public function phpversion_not_supported()
         {
-            if ( ! version_compare( PHP_VERSION, '5.4.0', '>=' ) ) : ?>
+            if (!version_compare(PHP_VERSION, '5.6.0', '>=')) : ?>
                 <div class="notice notice-error  is-dismissible">
                     <p><?php _e(
-                            'Smart Image Resize requires PHP 5.4.0 or greater to work correctly.',
+                            'Smart Image Resize requires PHP 5.6.0 or greater to work correctly.',
                             WP_SIR_NAME
                         ); ?></p>
                 </div>
@@ -201,7 +178,7 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
 
             $parent_slug = 'woocommerce';
             $cap         = 'manage_woocommerce';
-            if ( ! is_plugin_active( 'woocommerce/woocommerce.php' ) ) {
+            if (!is_plugin_active('woocommerce/woocommerce.php')) {
                 $parent_slug = 'options-general.php';
                 $cap         = 'manage_options';
             }
@@ -212,10 +189,10 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
                 'Smart Image Resize',
                 $cap,
                 WP_SIR_NAME,
-                [ $this, 'settings_page' ]
+                [$this, 'settings_page']
             );
 
-            add_action( 'load-' . $page_slug, [ $this, 'add_settings_help' ] );
+            add_action('load-' . $page_slug, [$this, 'add_settings_help']);
         }
 
         /**
@@ -226,47 +203,25 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
         public function init_settings()
         {
 
-            register_setting( WP_SIR_NAME, 'wp_sir_settings' );
+            register_setting(WP_SIR_NAME, 'wp_sir_settings');
 
             // General section.
-            add_settings_section(
-                'wp_sir_settings_general',
-                __( 'General', WP_SIR_NAME ),
-                null,
-                WP_SIR_NAME
-            );
-            add_settings_section(
-                'wp_sir_settings_optimization',
-                __( 'Optimization', WP_SIR_NAME ),
-                null,
-                WP_SIR_NAME
-            );
-            add_settings_section(
-                'wp_sir_settings_advanced',
-                __( 'Advanced', WP_SIR_NAME ),
-                null,
-                WP_SIR_NAME
-            );
-
-            add_settings_section(
-                'wp_sir_settings_advanced',
-                __( 'Advanced', WP_SIR_NAME ),
-                null,
-                WP_SIR_NAME
-            );
+            add_settings_section('wp_sir_settings_general', 'General', null, WP_SIR_NAME);
+            add_settings_section('wp_sir_settings_optimization', 'Optimization', null, WP_SIR_NAME);
+            add_settings_section('wp_sir_settings_advanced', 'Advanced', null, WP_SIR_NAME);
 
             // Register `Enable/Disable` plugin resize field.
             add_settings_field(
                 'wp_sir_settings_enable',
-                __( 'Enable Resizing', WP_SIR_NAME ),
-                [ $this, 'settings_field_enable' ],
+                'Enable Resizing',
+                [$this, 'settings_field_enable'],
                 WP_SIR_NAME,
                 'wp_sir_settings_general'
             );
             add_settings_field(
                 'wp_sir_settings_processable_images',
-                __( 'Images', WP_SIR_NAME ),
-                [ $this, 'settings_field_processable_images' ],
+                'Images',
+                [$this, 'settings_field_processable_images'],
                 WP_SIR_NAME,
                 'wp_sir_settings_general'
             );
@@ -274,8 +229,8 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             // Register `Sizes` field.
             add_settings_field(
                 'wp_sir_settings_sizes',
-                __( 'Sizes', WP_SIR_NAME ),
-                [ $this, 'settings_field_sizes' ],
+                'Sizes',
+                [$this, 'settings_field_sizes'],
                 WP_SIR_NAME,
                 'wp_sir_settings_advanced'
             );
@@ -283,8 +238,8 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             // Register `Enable WebP format` field.
             add_settings_field(
                 'wp_sir_settings_enable_trim',
-                __( 'Trim Whitespace', WP_SIR_NAME ),
-                [ $this, 'settings_field_enable_trim' ],
+                'Trim Whitespace',
+                [$this, 'settings_field_enable_trim'],
                 WP_SIR_NAME,
                 'wp_sir_settings_general'
             );
@@ -292,8 +247,8 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             // Register `Background Color` field.
             add_settings_field(
                 'wp_sir_settings_bg_color',
-                __( 'Background Color', WP_SIR_NAME ),
-                [ $this, 'settings_field_bg_color' ],
+                'Background Color',
+                [$this, 'settings_field_bg_color'],
                 WP_SIR_NAME,
                 'wp_sir_settings_general'
             );
@@ -301,8 +256,8 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             // Register `Image Compression` field.
             add_settings_field(
                 'wp_sir_settings_image_quality',
-                __( 'Image Compression', WP_SIR_NAME ),
-                [ $this, 'settings_field_image_quality' ],
+                'Image Compression',
+                [$this, 'settings_field_image_quality'],
                 WP_SIR_NAME,
                 'wp_sir_settings_optimization'
             );
@@ -310,8 +265,8 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             // Register `Convert to JPG format` field.
             add_settings_field(
                 'wp_sir_settings_jpg_convert',
-                __( 'Convert PNGs to JPEGs', WP_SIR_NAME ),
-                [ $this, 'settings_field_jpg_convert' ],
+                'Convert to JPEG',
+                [$this, 'settings_field_jpg_convert'],
                 WP_SIR_NAME,
                 'wp_sir_settings_optimization'
             );
@@ -319,24 +274,21 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
             // Register `Enable WebP format` field.
             add_settings_field(
                 'wp_sir_settings_enable_webp',
-                __( 'Enable WebP', WP_SIR_NAME ),
-                [ $this, 'settings_field_enable_webp' ],
+                'Enable WebP',
+                [$this, 'settings_field_enable_webp'],
                 WP_SIR_NAME,
                 'wp_sir_settings_optimization'
             );
-
         }
 
         function settings_field_enable_trim()
         {
             $settings = \wp_sir_get_settings(); ?>
             <label for="wp-sir-enable-trim">
-                <input type="checkbox"
-                       name="wp_sir_settings[enable_trim]" <?php checked( $settings[ 'enable_trim' ], 1 ); ?>
-                       id="wp-sir-enable-trim" class="wp-sir-as-toggle" value="1"/>
+                <input type="checkbox" name="wp_sir_settings[enable_trim]" <?php checked($settings['enable_trim'], 1); ?> id="wp-sir-enable-trim" class="wp-sir-as-toggle" value="1" />
             </label>
             <p class="description">
-                <?php _e( 'Remove unwanted whitespace around image.', 'wp-smart-image-resize' ); ?>
+                <?php _e('Remove unwanted whitespace around image.', 'wp-smart-image-resize'); ?>
             </p>
             <div class="hidden" id="wp-sir-trim-feather-wrap" style="margin-top:10px">
                 Border Size (px) <input type="number" min="0" name="wp_sir_settings[trim_feather]" style="width:70px" value="<?php echo $settings['trim_feather'] ?>">
@@ -346,52 +298,48 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
                 Tolerance Level (%) <input type="number" min="0" max="100" name="wp_sir_settings[trim_tolerance]" style="width:70px" value="<?php echo $settings['trim_tolerance'] ?>">
                 <p class="description">Increase the tolerance level to trim away colors that differ slightly from pure white.
                     <br>
-                Default: 3 (Max: 100)
-
-                
+                    Default: 3 (Max: 100)
                 </p>
             </div>
 
 
-            <?php
+        <?php
         }
 
         function settings_field_processable_images()
         {
             $settings = \wp_sir_get_settings();
 
-            ?>
+        ?>
             <div>
-                <label for="wp-sir-processable-images-product"
-                       style="display: flex; align-items: center; margin-bottom: 10px">
-                    <input type="checkbox"
-                           name="wp_sir_settings[processable_images][post_types][]" <?php
-                    echo in_array( 'product',
-                        $settings[ 'processable_images' ][ 'post_types' ], true ) ? 'checked' : '';
-                    ?>
-                           id="wp-sir-processable-images-product" class="wp-sir-as-toggle" value="product"
-                    /> <span style="display:inline-block">Product images</span>
+                <label for="wp-sir-processable-images-product" style="display: flex; align-items: center; margin-bottom: 10px">
+                    <input type="checkbox" name="wp_sir_settings[processable_images][post_types][]" <?php
+                                                                                                    echo in_array(
+                                                                                                        'product',
+                                                                                                        $settings['processable_images']['post_types'],
+                                                                                                        true
+                                                                                                    ) ? 'checked' : '';
+                                                                                                    ?> id="wp-sir-processable-images-product" class="wp-sir-as-toggle" value="product" /> <span style="display:inline-block">Product images</span>
                 </label>
                 <label for="wp-sir-processable-images-product-cat" style="display: flex; align-items: center">
-                    <input type="checkbox"
-                           name="wp_sir_settings[processable_images][taxonomies][]" <?php echo in_array( 'product_cat',
-                        $settings[ 'processable_images' ][ 'taxonomies' ], true ) ? 'checked' : ''; ?>
-                           id="wp-sir-processable-images-product-cat" class="wp-sir-as-toggle" value="product_cat"
-                    /> <span style="display:inline-block">Category images</span>
-                </label></div>
+                    <input type="checkbox" name="wp_sir_settings[processable_images][taxonomies][]" <?php echo in_array(
+                                                                                                        'product_cat',
+                                                                                                        $settings['processable_images']['taxonomies'],
+                                                                                                        true
+                                                                                                    ) ? 'checked' : ''; ?> id="wp-sir-processable-images-product-cat" class="wp-sir-as-toggle" value="product_cat" /> <span style="display:inline-block">Category images</span>
+                </label>
+            </div>
             <p class="description">
-                <?php _e( 'Select which images to resize.', 'wp-smart-image-resize' ); ?>
+                <?php _e('Select which images to resize.', 'wp-smart-image-resize'); ?>
             </p>
-            <?php
+        <?php
         }
 
         function settings_field_jpg_convert()
         {
             $settings = \wp_sir_get_settings(); ?>
             <label for="wp-sir-jpg-convert">
-                <input type="checkbox"
-                       name="wp_sir_settings[jpg_convert]" <?php checked( $settings[ 'jpg_convert' ], 1 ); ?>
-                       id="wp-sir-jpg-convert" class="wp-sir-as-toggle"  value="1"/>
+                <input type="checkbox" name="wp_sir_settings[jpg_convert]" <?php checked($settings['jpg_convert'], 1); ?> id="wp-sir-jpg-convert" class="wp-sir-as-toggle"  value="1" />
                 
             </label>
             <p class="description">
@@ -400,16 +348,14 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
                     WP_SIR_NAME
                 ); ?>
             </p>
-            <?php
+        <?php
         }
 
         function settings_field_enable_webp()
         {
             $settings = \wp_sir_get_settings(); ?>
             <label for="wp-sir-enable-webp">
-                <input type="checkbox"
-                       name="wp_sir_settings[enable_webp]" <?php checked( $settings[ 'enable_webp' ], 1 ); ?>
-                       id="wp-sir-enable-webp" class="wp-sir-as-toggle"  value="1"/>
+                <input type="checkbox" name="wp_sir_settings[enable_webp]" <?php checked($settings['enable_webp'], 1); ?> id="wp-sir-enable-webp" class="wp-sir-as-toggle"  value="1" />
                 
 
             </label>
@@ -423,71 +369,68 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
 
             
 
-            if ( ! Env::supports_webp() ) {
+            if (!Env::supports_webp()) {
                 echo '<p style="wp-sir-notice-danger"><span class="dashicons dashicons-info"></span> ';
-                echo _e( 'WebP format is not enabled on this server.', 'wp-smart-image-resize' );
+                echo _e('WebP format is not available on this server.', 'wp-smart-image-resize');
                 echo '</p>';
             }
             
             ?>
-            <?php
+        <?php
         }
 
-        public function settings_field_image_quality( $args )
+        public function settings_field_image_quality($args)
         {
             $settings = \wp_sir_get_settings(); ?>
-            <input name="wp_sir_settings[jpg_quality]" type="hidden" class="wpSirImageQuality"
-                   value="<?php echo absint( $settings[ 'jpg_quality' ] ); ?>"/>
+            <input name="wp_sir_settings[jpg_quality]" type="hidden" class="wpSirImageQuality" value="<?php echo absint($settings['jpg_quality']); ?>" />
             <div class="wpSirSlider" style="width:300px" data-input="wpSirImageQuality">
                 <div class="wpSirSliderHandler ui-slider-handle ppsir-slider-handle"></div>
             </div>
-            <?php
+        <?php
         }
 
         function settings_field_sizes()
         {
-            $settings = \wp_sir_get_settings( 'view' ); ?>
-            <select multiple="multiple" id="wpSirResizeSizes" name="wp_sir_settings[sizes][]"  data-defaults="<?php echo implode(',', _wp_sir_get_default_sizes()) ?>">
-                <?php foreach ( wp_sir_get_additional_sizes( 'view' ) as $key => $size ) :
-                    ?>
+            $settings = \wp_sir_get_settings('view'); ?>
+            <select multiple="multiple" id="wpSirResizeSizes" name="wp_sir_settings[sizes][]" data-defaults="<?php echo implode(',', _wp_sir_get_default_sizes()) ?>">
+                <?php foreach (wp_sir_get_additional_sizes('view') as $key => $size) :
+                ?>
                     <option value="<?php echo $key; ?>" <?php echo in_array(
-                        $key,
-                        $settings[ 'sizes' ]
-                    )
-                        ? 'selected'
-                        : ''; ?>><?php echo "$key({$size['width']}x{$size['height']})"; ?></option>
+                                                            $key,
+                                                            $settings['sizes']
+                                                        )
+                                                            ? 'selected'
+                                                            : ''; ?>><?php echo "$key({$size['width']}x{$size['height']})"; ?></option>
                 <?php endforeach; ?>
             </select>
             <p class="description">
-            Use the dropdown list above to select which image sizes to generate.
-            <br>
-            NOTE: To save some disk space, only needed sizes are pre-selected. <button id="wpsirResetDefaultSizes" type="button" class="button-link">Reset to pre-selected sizes</button>
+                Use the dropdown list above to select which image sizes to generate.
+                <br>
+                NOTE: To save some disk space, only needed sizes are pre-selected. <button id="wpsirResetDefaultSizes" type="button" class="button-link">Reset to pre-selected sizes</button>
             </p>
-            <?php
+        <?php
         }
 
 
 
-        public function settings_field_bg_color( $args )
+        public function settings_field_bg_color($args)
         {
             $settings = \wp_sir_get_settings(); ?>
-            <input name="wp_sir_settings[bg_color]" value="<?php echo $settings[ 'bg_color' ]; ?>" type="text"
-                   id="wpSirColorPicker"/>
-                   <button type="button" class="button button-default button-small" id="wp-sir-clear-bg-color" style="min-height:30px">Clear</button>
+            <input name="wp_sir_settings[bg_color]" value="<?php echo $settings['bg_color']; ?>" type="text" id="wpSirColorPicker" />
+            <button type="button" class="button button-default button-small" id="wp-sir-clear-bg-color" style="min-height:30px">Clear</button>
             <p class="description">
-           NOTE: A white background is used by default. To preserve image transpancy remove the selected color above by clicking the button "Clear".</p>
-            <?php
+                NOTE: A white background is used by default. To preserve image transpancy remove the selected color above by clicking the button "Clear".</p>
+        <?php
         }
 
-        public function settings_field_enable( $args )
+        public function settings_field_enable($args)
         {
             $settings = \wp_sir_get_settings(); ?>
             <label for="wp-sir-enable">
-                <input type="checkbox" class="wp-sir-as-toggle wp-sir-as-toggle--large" name="wp_sir_settings[enable]"
-                       id="wp-sir-enable" value="1" <?php checked( $settings[ 'enable' ], 1 ); ?> />
+                <input type="checkbox" class="wp-sir-as-toggle wp-sir-as-toggle--large" name="wp_sir_settings[enable]" id="wp-sir-enable" value="1" <?php checked($settings['enable'], 1); ?> />
             </label>
             
-            <?php
+<?php
         }
 
         public function settings_page()
@@ -498,25 +441,25 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
         function add_settings_help()
         {
 
-            if ( ! function_exists( 'get_current_screen' ) ) {
+            if (!function_exists('get_current_screen')) {
                 return;
             }
 
             $screen = get_current_screen();
 
             // Add one help tab
-            $screen->add_help_tab( array(
+            $screen->add_help_tab(array(
                 'id'      => 'wp-sir-help-tab1',
-                'title'   => esc_html__( 'Overview', WP_SIR_NAME ),
+                'title'   => esc_html__('Overview', WP_SIR_NAME),
                 'content' =>
-                    '<p><strong>Images:</strong> Select which images to generate.</p>' .
+                '<p><strong>Images:</strong> Select which images to generate.</p>' .
                     '<p><strong>Sizes:</strong> Select which sizes to generate.</p>' .
                     '<p><strong>Background Color:</strong> set the color of the emerging (empty) area of the generated thumbnail. Leave it empty for transparent background.</p>' .
                     '<p><strong>Image Compression:</strong> Compress images to reduce image file size to improve  page load time.</p>' .
                     '<p><strong>Trim whitespace:</strong> Remove unwanted whitespace around image to make all images look uniform.</p>' .
-                    '<p><strong>Convert PNGs to JPEGs:</strong> If transparent images aren\'t required, it\'s recommanded to convert images to JPG to boost page load speed.</p>' .
+                    '<p><strong>Convert to JPEG:</strong> If transparent images aren\'t required, it\'s recommanded to convert images to JPG to boost page load speed.</p>' .
                     '<p><strong>Enable WebP:</strong> WebP is the rockstart of image formats. Using WebP can dramatically reduce image file size without losing the quality of the image. WebP is widely supported by all modern browsers, otherwise, it fall backs automatically to standard image.</p>'
-            ) );
+            ));
 
             
             $help_sidebar = '<p><a href="https://sirplugin.com" >Contact support</a></p>';
@@ -524,10 +467,9 @@ if ( ! class_exists( '\WP_Smart_Image_Resize\Settings' ) ) :
 
             $screen->set_help_sidebar(
                 '<p><strong>' .
-                esc_html__( 'For more information:', WP_SIR_NAME ) .
-                '</strong></p>' . $help_sidebar
+                    esc_html__('For more information:', WP_SIR_NAME) .
+                    '</strong></p>' . $help_sidebar
             );
-
         }
     }
 endif;

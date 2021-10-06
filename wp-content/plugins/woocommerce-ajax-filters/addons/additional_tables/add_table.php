@@ -184,8 +184,10 @@ class BeRocket_aapf_variations_tables {
                     foreach($parent_attributes as $taxonomy => $terms_slug) {
                         $terms = get_terms(array('taxonomy' => $taxonomy, 'slug' => $terms_slug));
                         $terms_cache[$taxonomy] = array();
-                        foreach($terms as $term) {
-                            $terms_cache[$taxonomy][$term->slug] = $term;
+                        if( is_array($terms) ) {
+                            foreach($terms as $term) {
+                                $terms_cache[$taxonomy][$term->slug] = $term;
+                            }
                         }
                     }
                 }

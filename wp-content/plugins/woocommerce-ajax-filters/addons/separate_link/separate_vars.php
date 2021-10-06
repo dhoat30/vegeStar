@@ -519,16 +519,32 @@ braapf_compat_filters_result_separate_link;
         return url;
     }
 })(jQuery);
-berocket_remove_filter('get_current_url_data', braapf_get_current_filters);
-berocket_remove_filter('url_from_urldata_linkget', braapf_set_filters_to_link);
 
-//Remove filters
-berocket_add_filter('get_current_url_data', braapf_get_current_filters_separate_link);
-//Add filters
-berocket_add_filter('glue_by_operator', braapf_glue_by_operator_separate_link, 1);
-berocket_add_filter('compat_filters_result_single', braapf_compat_filters_result_separate_link, 20);
-berocket_add_filter('compat_filters_to_string_single', braapf_compat_filters_to_string_single_separate_link);
-berocket_add_filter('url_from_urldata_linkget', braapf_set_filters_to_link_separate_link);
+if( typeof(berocket_remove_filter) != 'undefined' ) {
+    berocket_remove_filter('get_current_url_data', braapf_get_current_filters);
+    berocket_remove_filter('url_from_urldata_linkget', braapf_set_filters_to_link);
+} else {
+    jQuery(document).on('bapf_js_loaded', function() {
+        berocket_remove_filter('get_current_url_data', braapf_get_current_filters);
+        berocket_remove_filter('url_from_urldata_linkget', braapf_set_filters_to_link);
+    });
+}
+
+function brapf_separate_link_add_filters() {
+    //Remove filters
+    berocket_add_filter('get_current_url_data', braapf_get_current_filters_separate_link);
+    //Add filters
+    berocket_add_filter('glue_by_operator', braapf_glue_by_operator_separate_link, 1);
+    berocket_add_filter('compat_filters_result_single', braapf_compat_filters_result_separate_link, 20);
+    berocket_add_filter('compat_filters_to_string_single', braapf_compat_filters_to_string_single_separate_link);
+    berocket_add_filter('url_from_urldata_linkget', braapf_set_filters_to_link_separate_link);
+}
+
+if( typeof(berocket_add_filter) != 'undefined' ) {
+    brapf_separate_link_add_filters();
+} else {
+    jQuery(document).on('berocket_hooks_ready', brapf_separate_link_add_filters);
+}
             <?php
             $script = ob_get_clean();
             wp_add_inline_script('berocket_aapf_widget-script', $script);

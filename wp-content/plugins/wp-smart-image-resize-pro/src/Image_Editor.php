@@ -160,7 +160,7 @@ if (!class_exists('\WP_Smart_Image_Resize\Image_Editor')) :
                     return $metadata;
                 }
 
-                $imageManager = new Image_Manager([$metadata['width'], $metadata['height']]);
+                $imageManager = new Image_Manager();
 
                 // Let's try to load the given image to memory,
                 $image = $imageManager->make($imageMeta->getOriginalFullPath());
@@ -197,35 +197,36 @@ if (!class_exists('\WP_Smart_Image_Resize\Image_Editor')) :
                     }
 
                     // Should force-crop the image or preserve the aspect-ratio.
-                    $preserveAspectRatio = filter_var($settings['preserve_aspect_ratio'], FILTER_VALIDATE_BOOLEAN);
+                    $preserve_aspect_ratio = filter_var($settings['preserve_aspect_ratio'], FILTER_VALIDATE_BOOLEAN);
 
-                    $thumb = $image->filter(new Thumbnail_Filter($imageManager, $sizeData, $preserveAspectRatio));
+                    $thumb_object = clone $image;
+                    $thumb_object = $thumb_object->filter(new Thumbnail_Filter($imageManager, $sizeData, $preserve_aspect_ratio));
 
-                    $thumbPath = $this->generateThumbPath($image->basePath(), $sizeData, $sizeName, $imageId);
+                    $thumb_path = $this->generateThumbPath($image->basePath(), $sizeData, $sizeName, $imageId);
 
-                    File::delete($thumbPath);
+                    @unlink($thumb_path);
 
                     $quality = 100 - intval($settings['jpg_quality']);
 
                     $quality = apply_filters('jpeg_quality', $quality, 'image_resize');
 
-                    $thumb->save($thumbPath, $quality);
+                    $thumb_object->save($thumb_path, $quality);
 
                     $imageMeta->setSizeData($sizeName, [
-                        'width'     => $thumb->getWidth(),
-                        'height'    => $thumb->getHeight(),
-                        'file'      => $thumb->basename,
-                        'mime-type' => $thumb->mime(),
+                        'width'     => $thumb_object->getWidth(),
+                        'height'    => $thumb_object->getHeight(),
+                        'file'      => $thumb_object->basename,
+                        'mime-type' => $thumb_object->mime(),
                     ]);
 
                     $sameSizes[$sizeHash] = $sizeName;
 
                     
-                    $webpThumb = $imageMeta->getSizeFullPath($sizeName, 'webp');
-                    $thumb->filter(new CreateWebP_Filter($webpThumb));
+                    $webp_thumb_path = $imageMeta->getSizeFullPath($sizeName, 'webp');
+                    $thumb_object->filter(new CreateWebP_Filter($webp_thumb_path));
                     
 
-                    $thumb->destroy();
+                    $thumb_object->destroy();
                 }
 
                 $image->destroy();
@@ -295,11 +296,11 @@ if (!class_exists('\WP_Smart_Image_Resize\Image_Editor')) :
                 if (!in_array($file, $newFileNames)) {
 
                     // Delete old thumbnails, including JPG-converted images as well.
-                    File::delete($imageDirPath . $file);
+                    @unlink($imageDirPath . $file);
 
                     // Delete old WebP images if present.
                     $webp = $imageDirPath . File::mb_pathinfo($file, PATHINFO_FILENAME) . '.webp';
-                    File::delete($imageDirPath . $webp);
+                    @unlink($imageDirPath . $webp);
                 }
             }
         }
@@ -317,9 +318,11 @@ if (!class_exists('\WP_Smart_Image_Resize\Image_Editor')) :
             $sizes = [];
 
             foreach ($sizeNames as $sizeName) {
+
+                // TODO: Use `wp_sir_get_additional_sizes` directly.
                 $size = wp_sir_get_size_dimensions($sizeName);
 
-                if (!empty($size)) {
+                if (!empty($size) && !empty($size['width']) && !empty($size['height'])) {
                     $sizes[$sizeName] = $size;
                 }
             }

@@ -227,8 +227,12 @@ class BeRocket_AAPF extends BeRocket_Framework {
                     if ( self::$debug_mode ) {
                         self::$error_log['1_settings'] = $option;
                     }
-                    add_action( 'admin_init', array($this, 'register_admin_assets'));
                     add_action( 'wp', array($this, 'register_frontend_assets'));
+                    if ( isset($_GET['legacy-widget-preview'], $_GET['legacy-widget-preview']['idBase']) && in_array($_GET['legacy-widget-preview']['idBase'], array('berocket_aapf_single', 'berocket_aapf_group')) ) {
+                        add_action( 'admin_init', array($this, 'register_frontend_assets'));
+                    } else {
+                        add_action( 'admin_init', array($this, 'register_admin_assets'));
+                    }
 
                     add_action( 'admin_init', array( $this, 'admin_init' ) );
                     add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -244,7 +248,7 @@ class BeRocket_AAPF extends BeRocket_Framework {
                     if ( defined('DOING_AJAX') && DOING_AJAX ) {
                         $this->ajax_functions();
                     }
-                    if ( ! is_admin() ) {
+                    if ( self::where_load_styles_scripts() ) {
                         if ( ! defined('DOING_AJAX') || ! DOING_AJAX ) {
                             $this->not_ajax_functions();
                         }
@@ -465,7 +469,7 @@ class BeRocket_AAPF extends BeRocket_Framework {
             $this->info['version'] );
         }
         do_action('braapf_register_frontend_assets');
-        if( ! is_admin() && apply_filters('bapf_isoption_ajax_site', ! empty($option['ajax_site'])) ) {
+        if( self::where_load_styles_scripts() && apply_filters('bapf_isoption_ajax_site', ! empty($option['ajax_site'])) ) {
             self::require_all_scripts();
             do_action('br_footer_script');
         }
@@ -480,9 +484,12 @@ class BeRocket_AAPF extends BeRocket_Framework {
                 "",
                 $this->info['version'] );
         }
-        if( ! is_admin() && empty($option['styles_in_footer']) ) {
+        if( self::where_load_styles_scripts() && empty($option['styles_in_footer']) ) {
             self::require_all_styles();
         }
+    }
+    public static function where_load_styles_scripts() {
+        return (! is_admin() || ( isset($_GET['legacy-widget-preview'], $_GET['legacy-widget-preview']['idBase']) && in_array($_GET['legacy-widget-preview']['idBase'], array('berocket_aapf_single', 'berocket_aapf_group')) ) );
     }
     public static function require_all_scripts($old = false) {
         $scripts = apply_filters('bapf_require_all_scripts_array', array('berocket_aapf_widget-script', 'berocket_aapf_jquery-slider-fix', 'select2', 'berocket_aapf_widget-scroll-script'), $old);
@@ -598,6 +605,7 @@ class BeRocket_AAPF extends BeRocket_Framework {
         wp_enqueue_style( 'font-awesome' );
     }
     public function admin_settings( $tabs_info = array(), $data = array() ) {
+        do_action('bapf_include_all_tempate_styles');
         wp_enqueue_script( 'berocket_aapf_widget-admin' );
         parent::admin_settings(
             array(
@@ -1616,8 +1624,6 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
     }
     function ajax_functions() {
         add_action( 'setup_theme', array( $this, 'WPML_fix' ) );
-        add_action( "wp_ajax_br_aapf_get_child", array ( $this, 'br_aapf_get_child' ) );
-        add_action( "wp_ajax_nopriv_br_aapf_get_child", array ( $this, 'br_aapf_get_child' ) );
         add_action( "wp_ajax_aapf_color_set", array ( 'BeRocket_AAPF_Widget_functions', 'color_listener' ) );
         BeRocket_AAPF_Widget_functions::br_widget_ajax_set();
         add_action( "wp_ajax_berocket_aapf_load_simple_filter_creation", array ( $this, 'load_simple_filter_creation' ) );
@@ -2566,7 +2572,9 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
         }
     }
     public function footer_css() {
-        echo '<style>', $this->br_custom_user_css(), '</style>';
+        if ( $user_css = $this->br_custom_user_css() ) {
+            echo '<style>', $user_css, '</style>';
+        }
     }
     public function br_custom_user_css() {
         $options     = $this->get_option();
@@ -2851,77 +2859,6 @@ jQuery(document).on('change', '.berocket_disable_ajax_loading', berocket_disable
         $set_query_var_title['selected_area_show'] = empty($br_options['selected_area_hide_empty']);
         $set_query_var_title = array_merge(BeRocket_AAPF_Widget::$defaults, $set_query_var_title);
         new BeRocket_AAPF_Widget($set_query_var_title);
-    }
-    public function br_aapf_get_child() {
-        $br_options = apply_filters( 'berocket_aapf_listener_br_options', $this->get_option() );
-        $taxonomy = $_POST['taxonomy'];
-        $type = $_POST['type'];
-        $term_id = $_POST['term_id'];
-        $term_id = str_replace( '\\', '', $term_id );
-        $term_id = json_decode($term_id);
-        if ( $type == 'slider' ) {
-            $all_terms_name = array();
-            $terms_1        = get_terms( $taxonomy );
-            $is_numeric = true;
-            $terms = array();
-            foreach ( $terms_1 as $term_ar ) {
-                array_push( $all_terms_name, $term_ar->name );
-                if( ! is_numeric( substr( $term_ar->name[0], 0, 1 ) ) ) {
-                    $is_numeric = false;
-                }
-            }
-            if( $is_numeric ) {
-                sort( $all_terms_name, SORT_NUMERIC );
-            } else {
-                sort( $all_terms_name );
-            }
-            $start_terms    = array_search( $term_id[0], $all_terms_name );
-            $end_terms      = array_search( $term_id[1], $all_terms_name );
-            $all_terms_name = array_slice( $all_terms_name, $start_terms, ( $end_terms - $start_terms + 1 ) );
-            foreach ( $all_terms_name as $term_name ) {
-                $term_id = get_term_by ( 'name', $term_name, $taxonomy );
-                $args_terms = array(
-                    'orderby'    => 'id',
-                    'order'      => 'ASC',
-                    'hide_empty' => false,
-                    'parent'     => $term_id->term_id,
-                );
-                $current_terms = get_terms( $taxonomy, $args_terms );
-                foreach ( $current_terms as $current_term ) {
-                    $terms[] = $current_term;
-                }
-            }
-            echo json_encode($terms);
-        } else {
-            if( is_array($term_id) && count($term_id) > 0 ) {
-                $terms = array();
-                foreach ( $term_id as $parent ) {
-                    $args_terms = array(
-                        'taxonomy'   => $taxonomy,
-                        'hide_empty' => false,
-                        'parent'     => intval($parent),
-                    );
-                    $new_terms = berocket_aapf_get_terms($args_terms);
-                    if( ! is_array( $new_terms ) ) {
-                        $new_terms = array();
-                    }
-                    if ( is_array( $new_terms ) ) {
-                        foreach ( $new_terms as $key => $term_val ) {
-                            $new_terms[$key]->color = get_metadata( 'berocket_term', $term_val->term_id, 'color' );
-                            $new_terms[$key]->r_class = '';
-                            if( ! empty($br_options['hide_value']['o']) && isset($term_val->count) && $term_val->count == 0 ) {
-                                $new_terms[$key]->r_class += 'berocket_hide_o_value ';
-                            }
-                        }
-                    }
-                    $terms = array_merge( $terms, $new_terms );
-                }
-                echo json_encode($terms);
-            } else {
-                echo json_encode($term_id);
-            }
-        }
-        wp_die();
     }
     public function WPML_fix() {
         global $sitepress;

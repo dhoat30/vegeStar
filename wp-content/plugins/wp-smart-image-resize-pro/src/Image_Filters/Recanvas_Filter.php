@@ -47,7 +47,7 @@ class Recanvas_Filter implements FilterInterface
      */
     protected $manager;
 
-    public function __construct( $manager, $size )
+    public function __construct($manager, $size)
     {
         $this->size    = $size;
         $this->manager = $manager;
@@ -56,33 +56,25 @@ class Recanvas_Filter implements FilterInterface
 
     public function getCanvasColor()
     {
-        return sanitize_hex_color( wp_sir_get_settings()[ 'bg_color' ] ) ?: null;
+        return sanitize_hex_color(wp_sir_get_settings()['bg_color']) ?: null;
     }
 
     public function getImagePosition()
     {
-        $position = strtolower( apply_filters( 'wp_sir_canvas_position', $this->defaultPosition ) );
+        $position = strtolower(apply_filters('wp_sir_canvas_position', $this->defaultPosition));
 
-        if ( ! in_array( $position, $this->supportedPositions ) ) {
+        if (!in_array($position, $this->supportedPositions)) {
             $position = $this->defaultPosition;
         }
 
         return $position;
     }
 
-    public function applyFilter( Image $image )
+    public function applyFilter(Image $image)
     {
 
-        $canvas = $this->manager->canvas(
-            $this->size[ 'width' ],
-            $this->size[ 'height' ],
-            $this->getCanvasColor()
-        );
+        $canvas = $this->manager->canvas($this->size['width'], $this->size['height'], $this->getCanvasColor());
 
-        $canvas->insert( $image, $this->getImagePosition() );
-        $image->destroy();
-
-        return $canvas;
-
+        return $canvas->insert($image, $this->getImagePosition());
     }
 }
