@@ -167,8 +167,8 @@
 
 /* review section  */
 .review-section {
-  background: #4fb68d;
-  margin: 50px 0;
+  /* background: #4fb68d; */
+  margin: 0 0 50px 0;
   padding: 100px 0;
 }
 .review-section .review-section-card {
@@ -290,5 +290,85 @@
     max-width: 1200px;
     width: 100%;
     padding: 50px 10px 80px 10px;
+  }
+}
+
+/* about us section */
+.usp-section {
+  padding: 50px 0;
+}
+.usp-section img {
+  width: 100%;
+  max-width: 350px;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+.usp-section .usp-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.usp-section .usp-card {
+  max-width: 350px;
+  margin: 10px 20px;
+}
+.usp-section .usp-card h3 {
+  max-width: 350px;
+  margin: 20px 0 10px 0;
+}
+/* about us section  */
+.about-section .about-cards {
+  display: flex;
+  flex-direction: center;
+  flex-wrap: wrap;
+  margin: 100px auto;
+}
+.about-cards p {
+  margin: 10px 0;
+}
+.about-cards h3 {
+  margin: 0 0 -30px 0;
+}
+.about-cards img {
+  width: 100%;
+}
+.about-cards > div {
+  max-width: 45%;
+  margin: 0 20px;
+}
+@media (max-width: 900px) {
+  .about-cards > div {
+    max-width: 100%;
+    margin: 20px 0;
+  }
+}
+
+/* online section */
+.online-section .row-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 100px 0;
+}
+.online-section .row-container > div:nth-child(1) {
+  width: 30%;
+}
+.online-section .row-container > div:nth-child(2) {
+  width: 65%;
+}
+.online-section ul li {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+@media (max-width: 900px) {
+  .online-section .row-container > div:nth-child(1) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .online-section .row-container > div:nth-child(2) {
+    width: 100%;
   }
 }

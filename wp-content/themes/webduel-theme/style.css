@@ -346,7 +346,9 @@ textarea::placeholder {
 .off-white-bc {
   background-color: #fff;
 }
-
+.light-grey {
+  background-color: #f7f7f7;
+}
 /*shadow */
 
 .box-shadow {

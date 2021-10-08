@@ -13,6 +13,22 @@ add_post_type_support( "reviews", "thumbnail" );
 
 function register_custom_type2(){ 
     //brand logo
+    register_post_type("usp", array(
+      "supports" => array("title", 'thumbnail', "editor"), 
+      "public" => true, 
+      "show_ui" => true, 
+      "hierarchical" => true,
+      "labels" => array(
+         "name" => "USP", 
+         "add_new_item" => "Add New USP", 
+         "edit_item" => "Edit USP", 
+         "all_items" => "All USP", 
+         "singular_name" => "USP"
+      ), 
+      "menu_icon" => "dashicons-hammer"
+   )
+   ); 
+    //brand logo
     register_post_type("payment-options", array(
       "supports" => array("title", 'thumbnail'), 
       "public" => true, 

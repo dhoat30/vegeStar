@@ -34,7 +34,20 @@
 
 
     <section class="header off-white" >
-        <div class="top-banner row-container">
+        <?php 
+        $argsLogo = array(
+            'pagename' => 'contact', 
+            'posts_per_page' => 1
+
+        );
+        $logo = new WP_Query( $argsLogo );
+
+        while($logo->have_posts()){ 
+            $logo->the_post(); 
+            $patternImage = get_field('pattern');
+            ?>
+       
+        <div class="top-banner row-container" style='background: url(<?php print_r($patternImage['sizes']['medium_large'])?>); width: 100%; height: auto; background-size: cover; '>
             <h1 class="welcome-wrapper font-s-regular thin">
                 Welcome to Vege Star!
             </h1>
@@ -55,10 +68,10 @@
                             if(is_user_logged_in()){
                                 global $current_user; wp_get_current_user();  
                                 ?> <a href="" class="profile-name-value text-decoration-none white thin">
-                                    <i class="fal fa-user"></i> 
+                                    <i class="fal fa-user white"></i> 
                                     <span>  
                                         <?php echo  $current_user->display_name;?>
-                                        <i class="fal fa-chevron-down regular arrow-icon"></i>
+                                        <i class="fal fa-chevron-down regular arrow-icon white"></i>
                                     </span>
                                 </a>   
                                     
@@ -94,6 +107,8 @@
                 </li>
             </div>
         </div>
+        <?php
+                        } ?>
 
 
         <!--main navbar --> 

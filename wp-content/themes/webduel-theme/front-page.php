@@ -225,17 +225,115 @@ get_header();
                 </a>
 
             <?php 
-
                 }
                 wp_reset_postdata();
                 ?>
     </div>
 </div>
+<!-- usp us -->
+<section class="usp-section light-grey">
+    <div class="usp-section-card row-container">
+        <div class="usp-container ">
+            <div class="section-ft-size center-align">Why shop with Vege Star? </div>   
+        </div>
+    </div>
 
+    <div class="row-container usp-cards flex">
+        <?php 
 
+            $argsCategory = array(
+                'post_type' => 'USP', 
+                'posts_per_page' => -1
+            );
+            $category = new WP_Query( $argsCategory );
+
+            while($category->have_posts()){ 
+                $category->the_post(); 
+
+                ?>
+          
+                <div class="rm-txt-dec usp-card" >
+                        <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
+                        <div class="button-container">
+                            <h3 class="regular column-s-font center-align"><?php echo get_the_title();?></h3>
+                            <div class="font-s-med center-align"> <?php echo get_the_content();?></div>
+                        </div>
+                       
+                        
+            </div>
+
+            <?php 
+                }
+                wp_reset_postdata();
+                ?>
+    </div>
+    
+</section>
+<!-- About us -->
+<section class="about-section">
+
+    <div class="row-container about-cards flex">
+        <?php 
+
+            $argsCategory = array(
+                'pagename' => 'about', 
+                'posts_per_page' => -1
+            );
+            $category = new WP_Query( $argsCategory );
+
+            while($category->have_posts()){ 
+                $category->the_post(); 
+
+                ?>
+                <div>
+                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
+                </div>
+
+                <div class="rm-txt-dec about-card" >
+                            <h3 class="regular column-s-font"><?php echo get_the_title();?></h3>
+                            <div class="font-s-med"> <?php echo get_the_content();?></div>
+                </div>
+
+            <?php 
+                }
+                wp_reset_postdata();
+                ?>
+    </div>
+    
+</section>
+
+<!-- online ordering-->
+<section class="online-section light-grey ">
+    <div class="row-container">
+        <div class="online-section-card ">
+                <div class="section-ft-size">How does Ordering online works?</div>   
+        </div>
+
+        <div >
+            <h6 class="font-s-med">Order fresh groceries today on our website and we will deliver them to your doorstep.</h6>
+            <ul class="font-s-med">
+                <li>Shop Online and choose from hundreds of amazing products.</li>
+                <li>Select a delivery or pickup date.</li>
+                <li>Get it today – delivered to your doorstep or available for pick up</li>
+            </ul>
+        </div>
+    </div>
+</section>
 <!-- review section -->
+<?php 
+        $argsLogo = array(
+            'pagename' => 'contact', 
+            'posts_per_page' => 1
+
+        );
+        $logo = new WP_Query( $argsLogo );
+
+        while($logo->have_posts()){ 
+            $logo->the_post(); 
+            $patternImage = get_field('pattern');
+            ?>
 <section class="review-section">
-    <div class="review-section-card row-container">
+    <div class="review-section-card row-container" style='background: url(<?php print_r($patternImage['sizes']['medium_large'])?>); width: 100%; height: auto; background-size: cover; '>
         <div class="review-container ">
             <div class="column-s-font center-align white">Customer Reviews </div>   
         </div>
@@ -276,49 +374,9 @@ get_header();
     </div>
     
 </section>
-<!-- about us -->
-<section class="review-section">
-    <div class="review-section-card row-container">
-        <div class="review-container ">
-            <div class="column-s-font center-align white">Customer Reviews </div>   
-        </div>
-        <div class="owl-carousel">
-                    <?php 
 
-                $argsReview = array(
-                    'post_type' => 'reviews', 
-                    'posts_per_page' => -1
-                );
-                $review = new WP_Query( $argsReview );
+<?php }?>
 
-                while($review->have_posts()){ 
-                    $review->the_post(); 
-
-                    ?>
-                        <div class="review-cards">
-                            <div class="card">
-                                <div class="backdrop"></div>
-                                <div class="image">
-                                    <img loading="lazy" src="<?php echo get_the_post_thumbnail_url(null,"medium_large")?>" alt="<?php echo get_the_title();?>">
-                                    <h6 class="font-s-med ft-wt-med center-align"><?php echo get_the_title();?></h6>
-                                </div>
-                            </div>
-                            
-                            <div class="review white">
-                                <?php echo get_field('review');?>
-                            </div>
-                        </div>
-                <?php 
-
-                    }
-                    wp_reset_postdata();
-                    ?>
-
-        </div>
-       
-    </div>
-    
-</section>
 <!-- gallery container -->
 <div class="gallery-section">
 
